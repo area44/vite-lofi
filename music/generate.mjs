@@ -2,7 +2,7 @@ import { parseFile } from "music-metadata";
 import * as fs from "node:fs/promises";
 import * as path from "node:path";
 
-const songFormats = ['mp3', 'ogg', 'wav', 'mp4', 'webm']
+const songFormats = ["mp3", "ogg", "wav", "mp4", "webm"];
 
 async function main() {
   const publicDir = await fs.readdir("./public");
@@ -33,7 +33,7 @@ async function main() {
 
   await Promise.all(tasks);
   await fs.writeFile("./music/data.json", JSON.stringify(items));
-  console.log(`${items.length} items written.`)
+  console.log(`${items.length} items written.`);
 }
 
 void main();

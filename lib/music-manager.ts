@@ -26,8 +26,7 @@ export interface MusicManager {
   setVolume(v: number): void;
 }
 
-export interface MusicManagerOptions
-  extends Omit<QueueManagerOptions, "onUpdate"> {
+export interface MusicManagerOptions extends Omit<QueueManagerOptions, "onUpdate"> {
   onNext?: (song: QueueItem | undefined) => void;
   onStateChange?: () => void;
   onTimeUpdate?: (currentTime: number, duration: number) => void;
@@ -106,7 +105,7 @@ export function createMusicManager({
       await audio.play();
     },
     pause() {
-      void audio.pause();
+       audio.pause();
     },
     setPlaying(song) {
       const wasPlaying = !this.isPaused();

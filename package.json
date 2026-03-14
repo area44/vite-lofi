@@ -1,13 +1,14 @@
 {
-  "name": "fuma-lofi",
+  "name": "vite-lofi",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "generate:music": "node music/generate.mjs"
+    "dev": "vp dev",
+    "build": "vp build",
+    "preview": "vp preview",
+    "generate:music": "node music/generate.mjs",
+    "prepare": "vp config"
   },
   "dependencies": {
     "@fontsource-variable/inter": "^5.0.17",
@@ -18,7 +19,7 @@
     "@react-spring/three": "^9.7.3",
     "@react-three/drei": "^9.47.1",
     "@react-three/fiber": "^8.12.2",
-    "@vitejs/plugin-react": "^4.2.1",
+    "@vitejs/plugin-react": "^6.0.1",
     "cva": "npm:class-variance-authority@^0.7.0",
     "framer-motion": "^10.9.2",
     "music-metadata": "^7.14.0",
@@ -27,8 +28,7 @@
     "shadergradient": "^1.2.5",
     "tailwind-merge": "^2.2.1",
     "three": "^0.150.0",
-    "three-stdlib": "^2.21.6",
-    "vite": "^5.1.6"
+    "three-stdlib": "^2.21.6"
   },
   "devDependencies": {
     "@types/node": "^20.11.25",
@@ -38,6 +38,14 @@
     "autoprefixer": "^10.0.1",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.3.7",
-    "typescript": "^5.4.2"
+    "typescript": "^5.4.2",
+    "vite-plus": "latest"
+  },
+  "packageManager": "pnpm@10.32.1",
+  "pnpm": {
+    "overrides": {
+      "vite": "npm:@voidzero-dev/vite-plus-core@latest",
+      "vitest": "npm:@voidzero-dev/vite-plus-test@latest"
+    }
   }
 }

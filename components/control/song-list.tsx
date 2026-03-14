@@ -14,9 +14,7 @@ export function SongList({ musicManager }: SongListProps) {
 
   const onRemove = (item: QueueItem) => {
     musicManager.storageManager.saveCustomSongs(
-      musicManager.storageManager
-        .getCustomSongs()
-        .filter((song) => song.url !== item.url),
+      musicManager.storageManager.getCustomSongs().filter((song) => song.url !== item.url),
     );
 
     musicManager.queueManager.setSongs(musicManager.storageManager.loadSongs());
