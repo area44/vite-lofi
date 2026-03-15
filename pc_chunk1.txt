@@ -1,0 +1,33 @@
+import { cn } from "@/lib/cn";
+import { MusicManager } from "@/lib/music-manager";
+import { buttonVariants } from "@/components/ui/button";
+import { Song } from "@/music/data";
+import { Slider } from "@/components/ui/slider";
+import { useState } from "react";
+
+export interface TimeControlsProps {
+  musicManager: MusicManager;
+}
+
+export function PlayerControls({ musicManager }: TimeControlsProps) {
+  const randomize = () => {
+    const songs = [...musicManager.queueManager.songs];
+    const newList: Song[] = [];
+
+    while (songs.length > 0) {
+      const idx = Math.floor(Math.random() * songs.length);
+      const selected = songs.splice(idx, 1)[0];
+
+      newList.push(selected);
+    }
+
+    musicManager.queueManager.setSongs(newList);
+  };
+
+  return (
+    <div className="flex flex-row items-center gap-2 mt-2">
+      {musicManager.isPaused() ? (
+        <button
+          aria-label="play"
+          className={cn(buttonVariants({ variant: "secondary" }))}
+          onClick={() => musicMan

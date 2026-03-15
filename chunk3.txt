@@ -1,0 +1,5 @@
+rtal>
+));
+DialogContent.displayName = DialogPrimitive.Content.displayName;
+
+export { Dialog, DialogPortal, DialogOverlay, DialogTrigger, DialogContent };

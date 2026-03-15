@@ -1,0 +1,31 @@
+import type * as React from "react";
+import { forwardRef, useRef } from "react";
+import { cn } from "@/lib/cn";
+import { composeEventHandlers } from "@radix-ui/primitive";
+import { useComposedRefs } from "@radix-ui/react-compose-refs";
+
+export interface SliderProps extends React.HTMLAttributes<HTMLDivElement> {
+  /**
+   * Value from 0 to 1 (percentage)
+   */
+  value: number;
+
+  onValueChange: (v: number) => void;
+  onSlideEnd?: (v: number) => void;
+  onSlideStart?: () => void;
+}
+
+export const Slider = forwardRef<HTMLDivElement, SliderProps>(
+  ({ value, onValueChange, onSlideEnd, onSlideStart, ...props }, ref) => {
+    const containerRef = useRef<HTMLDivElement>(null);
+    const mergedRef = useComposedRefs(ref, containerRef);
+
+    const getPercent = (x: number) => {
+      if (!containerRef.current) return 0;
+
+      const bound = containerRef.current.getBoundingClientRect();
+      const percent = (x - bound.left) / bound.width;
+
+      return Math.min(Math.max(percent, 0), 1);
+    };
+

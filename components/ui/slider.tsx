@@ -1,8 +1,6 @@
-import type * as React from "react";
-import { forwardRef, useRef } from "react";
+import * as React from "react";
+import { Slider } from "@base-ui/react";
 import { cn } from "@/lib/cn";
-import { composeEventHandlers } from "@radix-ui/primitive";
-import { useComposedRefs } from "@radix-ui/react-compose-refs";
 
 export interface SliderProps extends React.HTMLAttributes<HTMLDivElement> {
   /**
@@ -15,67 +13,41 @@ export interface SliderProps extends React.HTMLAttributes<HTMLDivElement> {
   onSlideStart?: () => void;
 }
 
-export const Slider = forwardRef<HTMLDivElement, SliderProps>(
-  ({ value, onValueChange, onSlideEnd, onSlideStart, ...props }, ref) => {
-    const containerRef = useRef<HTMLDivElement>(null);
-    const mergedRef = useComposedRefs(ref, containerRef);
-
-    const getPercent = (x: number) => {
-      if (!containerRef.current) return 0;
-
-      const bound = containerRef.current.getBoundingClientRect();
-      const percent = (x - bound.left) / bound.width;
-
-      return Math.min(Math.max(percent, 0), 1);
-    };
-
+export const SliderComponent = React.forwardRef<HTMLDivElement, SliderProps>(
+  ({ value, onValueChange, onSlideEnd, onSlideStart, className, ...props }, ref) => {
     return (
-      <span
-        ref={mergedRef}
-        {...props}
-        className={cn("flex touch-none h-6 py-2", props.className)}
-        onPointerDown={composeEventHandlers(props.onPointerDown, (event) => {
-          const thumb = containerRef.current?.children[0];
-          const target = event.target as HTMLElement;
-          target.setPointerCapture(event.pointerId);
-          // Prevent browser focus behaviour because we focus a thumb manually when values change.
-          event.preventDefault();
+      <Slider.Root
+        ref={ref}
+        value={value * 100}
+        onValueChange={(v) => {
+          if (typeof v === "number") {
+             onValueChange(v / 100);
+          }
+        }}
+        onValueCommitted={(v) => {
+          if (typeof v === "number") {
+            onSlideEnd?.(v / 100);
+          }
+        }}
+        onPointerDown={(e) => {
           onSlideStart?.();
-
-          // Touch devices have a delay before focusing so won't focus if touch immediately moves
-          // away from target (sliding). We want thumb to focus regardless.
-          if (thumb && thumb === target) {
-            target.focus();
-          }
-        })}
-        onPointerMove={composeEventHandlers(props.onPointerMove, (event) => {
-          const target = event.target as HTMLElement;
-
-          if (target.hasPointerCapture(event.pointerId)) {
-            onValueChange(getPercent(event.clientX));
-          }
-        })}
-        onPointerUp={composeEventHandlers(props.onPointerUp, (event) => {
-          const target = event.target as HTMLElement;
-          if (target.hasPointerCapture(event.pointerId)) {
-            target.releasePointerCapture(event.pointerId);
-
-            onSlideEnd?.(getPercent(event.clientX));
-          }
-        })}
+          props.onPointerDown?.(e);
+        }}
+        min={0}
+        max={100}
+        step={1}
+        className={cn("flex touch-none h-6 py-2 w-full group items-center", className)}
       >
-        <span className="size-full border rounded-full border-purple-100/30 overflow-hidden">
-          <span
-            role="slider"
-            aria-valuemin={0}
-            aria-valuenow={value * 100}
-            aria-valuemax={100}
-            tabIndex={0}
-            className="block h-full bg-purple-100"
-            style={{ width: `${value * 100}%` }}
-          />
-        </span>
-      </span>
+        <Slider.Control className="relative flex w-full items-center">
+          <Slider.Track className="relative h-2 w-full grow overflow-hidden rounded-full border border-purple-100/30 bg-transparent">
+            <Slider.Indicator className="absolute h-full bg-purple-100" />
+          </Slider.Track>
+          <Slider.Thumb className="hidden h-4 w-4 rounded-full border-2 border-purple-100 bg-purple-950 ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 group-hover:block" />
+        </Slider.Control>
+      </Slider.Root>
     );
   },
 );
+SliderComponent.displayName = "Slider";
+
+export { SliderComponent as Slider };
