@@ -18,6 +18,7 @@ export function Menu({ musicManager }: { musicManager: MusicManager }) {
             className: "max-md:absolute max-md:top-8 max-md:right-8",
           }),
         )}
+        onMouseDown={(e) => e.stopPropagation()}
       >
         <svg
           width="24"
