@@ -105,7 +105,7 @@ export function createMusicManager({
       await audio.play();
     },
     pause() {
-       audio.pause();
+      audio.pause();
     },
     setPlaying(song) {
       const wasPlaying = !this.isPaused();
