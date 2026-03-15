@@ -10,7 +10,7 @@ import { QueueItem } from "@/lib/queue-manager";
 import { Timeline, DurationControl } from "@/components/control/timeline";
 
 export default function MusicPlayer() {
-  const timelineRef = useRef<DurationControl>();
+  const timelineRef = useRef<DurationControl>(undefined);
   const timeLabelRef = useRef<HTMLParagraphElement>(null);
 
   const [musicManager, setMusicManager] = useState<MusicManager>();

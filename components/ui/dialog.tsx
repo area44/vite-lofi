@@ -1,45 +1,42 @@
 import * as React from "react";
-import * as DialogPrimitive from "@radix-ui/react-dialog";
-
+import { Dialog } from "@base-ui/react";
 import { cn } from "@/lib/cn";
 
-const Dialog = DialogPrimitive.Root;
-
-const DialogTrigger = DialogPrimitive.Trigger;
-
-const DialogPortal = DialogPrimitive.Portal;
+const DialogRoot = Dialog.Root;
+const DialogTrigger = Dialog.Trigger;
+const DialogPortal = Dialog.Portal;
 
 const DialogOverlay = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Overlay>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
+  HTMLDivElement,
+  React.ComponentPropsWithoutRef<typeof Dialog.Backdrop>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Overlay
+  <Dialog.Backdrop
     ref={ref}
     className={cn(
       "fixed inset-0 z-50 bg-black/20 backdrop-blur-lg data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out",
-      className,
+      className as string,
     )}
     {...props}
   />
 ));
-DialogOverlay.displayName = DialogPrimitive.Overlay.displayName;
+DialogOverlay.displayName = "DialogOverlay";
 
 const DialogContent = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Content>
+  HTMLDivElement,
+  React.ComponentPropsWithoutRef<typeof Dialog.Popup>
 >(({ className, children, ...props }, ref) => (
   <DialogPortal>
     <DialogOverlay />
-    <DialogPrimitive.Content
+    <Dialog.Popup
       ref={ref}
       className={cn(
         "fixed left-[50%] top-[50%] rounded-lg text-purple-100 z-50 w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 bg-purple-950/70 p-6 shadow-lg data-[state=open]:animate-dialog-in data-[state=closed]:animate-dialog-out",
-        className,
+        className as string,
       )}
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none">
+      <Dialog.Close className="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none">
         <svg
           width="24"
           height="24"
@@ -55,10 +52,16 @@ const DialogContent = React.forwardRef<
           <path d="m6 6 12 12" />
         </svg>
         <span className="sr-only">Close</span>
-      </DialogPrimitive.Close>
-    </DialogPrimitive.Content>
+      </Dialog.Close>
+    </Dialog.Popup>
   </DialogPortal>
 ));
-DialogContent.displayName = DialogPrimitive.Content.displayName;
+DialogContent.displayName = "DialogContent";
 
-export { Dialog, DialogPortal, DialogOverlay, DialogTrigger, DialogContent };
+export {
+  DialogRoot as Dialog,
+  DialogPortal,
+  DialogOverlay,
+  DialogTrigger,
+  DialogContent,
+};

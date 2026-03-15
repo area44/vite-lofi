@@ -1,29 +1,31 @@
 import * as React from "react";
-import * as PopoverPrimitive from "@radix-ui/react-popover";
+import { Popover } from "@base-ui/react";
 import { cn } from "@/lib/cn";
 
-const Popover = PopoverPrimitive.Root;
-
-const PopoverTrigger = PopoverPrimitive.Trigger;
+const PopoverRoot = Popover.Root;
+const PopoverTrigger = Popover.Trigger;
 
 const PopoverContent = React.forwardRef<
-  React.ElementRef<typeof PopoverPrimitive.Content>,
-  React.ComponentPropsWithoutRef<typeof PopoverPrimitive.Content>
+  HTMLDivElement,
+  React.ComponentPropsWithoutRef<typeof Popover.Popup> & {
+    align?: "start" | "center" | "end";
+    side?: "top" | "right" | "bottom" | "left";
+    sideOffset?: number;
+  }
 >(({ className, align = "center", side = "top", sideOffset = 4, ...props }, ref) => (
-  <PopoverPrimitive.Portal>
-    <PopoverPrimitive.Content
-      ref={ref}
-      align={align}
-      side={side}
-      sideOffset={sideOffset}
-      className={cn(
-        "z-50 w-72 rounded-md bg-purple-950/40 backdrop-blur-lg text-purple-200 p-4 shadow-lg outline-none data-[state=open]:animate-popover-in data-[state=closed]:animate-popover-out",
-        className,
-      )}
-      {...props}
-    />
-  </PopoverPrimitive.Portal>
+  <Popover.Portal>
+    <Popover.Positioner side={side} sideOffset={sideOffset} align={align}>
+      <Popover.Popup
+        ref={ref}
+        className={cn(
+          "z-50 w-72 rounded-md bg-purple-950/40 backdrop-blur-lg text-purple-200 p-4 shadow-lg outline-none data-[state=open]:animate-popover-in data-[state=closed]:animate-popover-out",
+          className as string,
+        )}
+        {...props}
+      />
+    </Popover.Positioner>
+  </Popover.Portal>
 ));
-PopoverContent.displayName = PopoverPrimitive.Content.displayName;
+PopoverContent.displayName = "PopoverContent";
 
-export { Popover, PopoverTrigger, PopoverContent };
+export { PopoverRoot as Popover, PopoverTrigger, PopoverContent };
