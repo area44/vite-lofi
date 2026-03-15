@@ -36,18 +36,7 @@ export interface Props extends CanvasHTMLAttributes<HTMLCanvasElement> {
    * For more details {@link https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode/fftSize MDN AnalyserNode: fftSize property}
    * Default: `1024`
    */
-  fftSize?:
-    | 32
-    | 64
-    | 128
-    | 256
-    | 512
-    | 1024
-    | 2048
-    | 4096
-    | 8192
-    | 16384
-    | 32768;
+  fftSize?: 32 | 64 | 128 | 256 | 512 | 1024 | 2048 | 4096 | 8192 | 16384 | 32768;
   /**
    * A double, representing the maximum decibel value for scaling the FFT analysis data
    * For more details {@link https://developer.mozilla.org/en-US/docs/Web/API/AnalyserNode/maxDecibels MDN AnalyserNode: maxDecibels property}
@@ -109,20 +98,8 @@ export const MusicVisualizer: (props: Props) => ReactElement = ({
   const processFrequencyData = (data: Uint8Array): void => {
     if (!canvasRef.current) return;
 
-    const dataPoints = calculateBarData(
-      data,
-      canvasRef.current.width,
-      barWidth,
-      gap,
-    );
-    draw(
-      dataPoints,
-      canvasRef.current,
-      barWidth,
-      gap,
-      backgroundColor,
-      barColor,
-    );
+    const dataPoints = calculateBarData(data, canvasRef.current.width, barWidth, gap);
+    draw(dataPoints, canvasRef.current, barWidth, gap, backgroundColor, barColor);
   };
 
   return <canvas ref={canvasRef} {...props} />;

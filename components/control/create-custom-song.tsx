@@ -11,11 +11,7 @@ const inputVariants = cva(
   "bg-transparent rounded-lg bg-purple-200/10 text-sm px-2 py-1 -mx-2 placeholder:text-purple-200/80 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400",
 );
 
-export function CreateCustomSongDialog({
-  musicManager,
-}: {
-  musicManager: MusicManager;
-}) {
+export function CreateCustomSongDialog({ musicManager }: { musicManager: MusicManager }) {
   const [open, setOpen] = useState(false);
 
   return (
@@ -34,9 +30,7 @@ export function CreateCustomSongDialog({
           storage={musicManager.storageManager}
           onClose={() => {
             // reload
-            musicManager.queueManager.setSongs(
-              musicManager.storageManager.loadSongs(),
-            );
+            musicManager.queueManager.setSongs(musicManager.storageManager.loadSongs());
             setOpen(false);
           }}
         />
@@ -45,19 +39,11 @@ export function CreateCustomSongDialog({
   );
 }
 
-function CreateCustomSong({
-  storage,
-  onClose,
-}: {
-  storage: StorageManager;
-  onClose: () => void;
-}) {
+function CreateCustomSong({ storage, onClose }: { storage: StorageManager; onClose: () => void }) {
   return (
     <div>
       <h2 className="font-medium">Add Custom Song</h2>
-      <p className="text-purple-200 text-sm mb-6">
-        Bring your own songs to here
-      </p>
+      <p className="text-purple-200 text-sm mb-6">Bring your own songs to here</p>
       <NewSong
         onAdd={(song) => {
           const update = [...storage.getCustomSongs(), song];
@@ -114,11 +100,7 @@ function NewSong({ onAdd }: { onAdd: (song: Song) => void }) {
           className={cn(inputVariants())}
         />
       </fieldset>
-      <button
-        className={cn(
-          buttonVariants({ variant: "primary", className: "w-fit" }),
-        )}
-      >
+      <button className={cn(buttonVariants({ variant: "primary", className: "w-fit" }))}>
         Submit
       </button>
     </form>

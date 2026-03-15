@@ -10,9 +10,7 @@ export interface ShortcutManager {
   destroy(): void;
 }
 
-export function createShortcutManager({
-  musicManager,
-}: ShortcutManagerOptions): ShortcutManager {
+export function createShortcutManager({ musicManager }: ShortcutManagerOptions): ShortcutManager {
   return {
     onPress(event: KeyboardEvent) {
       const target = event.target as HTMLElement;

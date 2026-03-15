@@ -1,8 +1,8 @@
-## Fuma Lofi
+## @area44/vite-lofi
 
 Some nice lofi music and a music player.
 
-**Demo:** https://fuma-lofi.vercel.app
+**Demo:** https://vite-lofi.onrender.com
 
 ![Preview](./public/preview.png)
 
@@ -11,7 +11,7 @@ Some nice lofi music and a music player.
 Clone the repository.
 
 ```bash
-git clone https://github.com/fuma-nama/fuma-lofi.git
+git clone https://github.com/area44/vite-lofi.git
 ```
 
 Install with [pnpm](https://pnpm.io).
@@ -48,10 +48,10 @@ Music from [Uppbeat](https://uppbeat.io).
 It is encouraged to bring your own songs.
 
 - https://uppbeat.io/t/ra/cold-brew
-License code: `OZKJV3M2MXHS6NBX`
+  License code: `OZKJV3M2MXHS6NBX`
 
 - https://uppbeat.io/t/avbe/night-in-kyoto
-License code: `NNDPYSZCN8HVGASH`
+  License code: `NNDPYSZCN8HVGASH`
 
 - https://uppbeat.io/t/prigida/moonshine
-License code: `OM8JENTZZEBMACX1`
+  License code: `OM8JENTZZEBMACX1`
