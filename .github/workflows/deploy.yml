@@ -2,7 +2,8 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: ['main']
+  pull_request:
 
 permissions:
   contents: read
@@ -11,32 +12,31 @@ permissions:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-slim
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v2
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install Vite+
+        uses: voidzero-dev/setup-vp@v1
         with:
-          version: 10
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-          cache: "pnpm"
-      - name: Install vp
-        run: "curl -fsSL https://vite.plus | bash"
+          node-version: '24'
+          cache: true
+
       - name: Install dependencies
-        run: |
-          export PATH="$HOME/.vite-plus/bin:$PATH"
-          vp install
+        run: vp install
+
       - name: Build
-        run: |
-          export PATH="$HOME/.vite-plus/bin:$PATH"
-          vp build
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: "./dist"
+        run: vp build
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

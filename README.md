@@ -1,8 +1,8 @@
-## Vite Lofi
+## @area44/vite-lofi
 
 Some nice lofi music and a music player.
 
-**Demo:** https://vite-lofi.vercel.app
+**Demo:** https://vite-lofi.onrender.com
 
 ![Preview](./public/preview.png)
 
@@ -11,7 +11,7 @@ Some nice lofi music and a music player.
 Clone the repository.
 
 ```bash
-git clone https://github.com/fuma-nama/vite-lofi.git
+git clone https://github.com/area44/vite-lofi.git
 ```
 
 Install with [pnpm](https://pnpm.io).
