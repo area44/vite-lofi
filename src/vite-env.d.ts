@@ -1,11 +1,6 @@
 /// <reference types="vite/client" />
 
-declare module "*.css" {
-  const content: { [className: string]: string };
-  export default content;
-}
-
-declare module "@fontsource-variable/inter" {
-  const content: any;
-  export default content;
-}
+declare module "*.css";
+declare module "*.mp3";
+declare module "*.jpeg";
+declare module "@fontsource-variable/inter";
