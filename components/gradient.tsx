@@ -13,7 +13,7 @@ export function Gradient({ currentId }: { currentId: number }) {
   }, [currentId]);
 
   return (
-    <ShaderGradientCanvas>
+    <ShaderGradientCanvas style={{ pointerEvents: "none" }}>
       <ShaderGradient
         animate="on"
         brightness={1}
@@ -25,6 +25,7 @@ export function Gradient({ currentId }: { currentId: number }) {
         color2={set[1]}
         color3={set[2]}
         envPreset="city"
+        // @ts-expect-error - frameRate is not in the type definition but used by the library
         frameRate={10}
         grain="on"
         lightType="3d"

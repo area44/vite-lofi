@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ['main']
+    branches: ["main"]
   pull_request:
 
 permissions:
@@ -20,7 +20,7 @@ jobs:
       - name: Install Vite+
         uses: voidzero-dev/setup-vp@v1
         with:
-          node-version: '24'
+          node-version: "24"
           cache: true
 
       - name: Install dependencies
@@ -28,7 +28,7 @@ jobs:
 
       - name: Build
         run: vp build
-      
+
       - name: Upload site artifact
         uses: actions/upload-pages-artifact@v4
         with:
