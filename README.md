@@ -4,8 +4,6 @@ Some nice lofi music and a music player.
 
 **Demo:** https://vite-lofi.onrender.com
 
-![Preview](./public/preview.png)
-
 ### Run on local
 
 Clone the repository.
