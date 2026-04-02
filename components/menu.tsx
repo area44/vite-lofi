@@ -4,7 +4,6 @@ import { PlayerControls } from "@/components/control/player-controls";
 import { MusicManager } from "@/lib/music-manager";
 import { cn } from "@/lib/cn";
 import { buttonVariants } from "@/components/ui/button";
-import { CreateCustomSongDialog } from "@/components/control/create-custom-song";
 
 export function Menu({ musicManager }: { musicManager: MusicManager }) {
   return (
@@ -40,8 +39,7 @@ export function Menu({ musicManager }: { musicManager: MusicManager }) {
       <PopoverContent>
         <SongList musicManager={musicManager} />
         <PlayerControls musicManager={musicManager} />
-        <div className="grid grid-cols-2 gap-2 mt-4">
-          <CreateCustomSongDialog musicManager={musicManager} />
+        <div className="grid grid-cols-1 gap-2 mt-4">
           <a
             href="https://github.com/fuma-nama/vite-lofi"
             target="_blank"

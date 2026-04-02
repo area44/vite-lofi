@@ -55,6 +55,12 @@ export default function MusicPlayer() {
     if (!musicManager || e.button !== 0) return;
 
     const target = e.target as Element;
+
+    // Ignore interactive elements
+    if (target.closest("button, a, input, [role='button']")) {
+      return;
+    }
+
     const isTrigger = target.matches(
       "[data-trigger-container] *, [data-trigger-container], [data-trigger]",
     );
@@ -83,12 +89,9 @@ export default function MusicPlayer() {
           {currentSong ? <SongDisplay song={currentSong} /> : null}
         </AnimatePresence>
       </div>
-      <div
-        data-trigger={true}
-        className="flex flex-row gap-4 mt-auto items-end justify-center md:justify-between"
-      >
+      <div className="flex flex-row gap-4 mt-auto items-end justify-center md:justify-between">
         {musicManager && <Menu musicManager={musicManager} />}
-        <div className="w-full max-w-[250px]" data-trigger-container={true}>
+        <div className="w-full max-w-[250px]" data-trigger={true} data-trigger-container={true}>
           {musicManager && (
             <MusicVisualizer
               className="w-full h-[150px]"
