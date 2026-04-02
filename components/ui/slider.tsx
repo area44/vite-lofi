@@ -21,7 +21,7 @@ export const SliderComponent = React.forwardRef<HTMLDivElement, SliderProps>(
         value={value * 100}
         onValueChange={(v) => {
           if (typeof v === "number") {
-             onValueChange(v / 100);
+            onValueChange(v / 100);
           }
         }}
         onValueCommitted={(v) => {

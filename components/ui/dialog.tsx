@@ -58,10 +58,4 @@ const DialogContent = React.forwardRef<
 ));
 DialogContent.displayName = "DialogContent";
 
-export {
-  DialogRoot as Dialog,
-  DialogPortal,
-  DialogOverlay,
-  DialogTrigger,
-  DialogContent,
-};
+export { DialogRoot as Dialog, DialogPortal, DialogOverlay, DialogTrigger, DialogContent };

@@ -137,9 +137,7 @@ function VolumeSlider({ musicManager }: { musicManager: MusicManager }) {
               {value > 0.7 && <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />}
             </>
           )}
-          {value === 0 && (
-             <line x1="23" x2="1" y1="1" y2="23" />
-          )}
+          {value === 0 && <line x1="23" x2="1" y1="1" y2="23" />}
         </svg>
       </button>
       <Slider
