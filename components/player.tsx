@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useMemo, MouseEventHandler } from "react";
+import { useEffect, useRef, useState, useMemo, MouseEventHandler, memo } from "react";
 import { Gradient } from "@/components/gradient";
 import { createMusicManager, MusicManager } from "@/lib/music-manager";
 import { createShortcutManager } from "@/lib/shortcut-manager";
@@ -86,7 +86,7 @@ export default function MusicPlayer() {
       <div className="w-full max-w-[500px] mt-2">
         <Timeline musicManager={musicManager} durationRef={timelineRef} />
         <AnimatePresence mode="wait" initial={false}>
-          {currentSong ? <SongDisplay song={currentSong} /> : null}
+          {currentSong ? <SongDisplay key={currentSong.id} song={currentSong} /> : null}
         </AnimatePresence>
       </div>
       <div className="flex flex-row gap-4 mt-auto items-end justify-center md:justify-between">
@@ -96,6 +96,7 @@ export default function MusicPlayer() {
             <MusicVisualizer
               className="w-full h-[150px]"
               analyser={musicManager.analyser}
+              paused={paused}
               fftSize={4096}
               barWidth={2}
               gap={6}
@@ -129,10 +130,9 @@ export default function MusicPlayer() {
   );
 }
 
-function SongDisplay({ song }: { song: QueueItem }) {
+const SongDisplay = memo(({ song }: { song: QueueItem }) => {
   return (
     <motion.div
-      key={song.id}
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -10, opacity: 0 }}
@@ -146,9 +146,9 @@ function SongDisplay({ song }: { song: QueueItem }) {
       </div>
     </motion.div>
   );
-}
+});
 
-function AnimatedTitle({ text }: { text: string }) {
+const AnimatedTitle = memo(({ text }: { text: string }) => {
   const words = useMemo(() => text.split(" "), [text]);
   let index = 0;
 
@@ -178,4 +178,4 @@ function AnimatedTitle({ text }: { text: string }) {
       ))}
     </h1>
   );
-}
+});

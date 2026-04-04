@@ -43,22 +43,29 @@ export const draw = (
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   }
 
-  data.forEach((dp, i) => {
-    ctx.fillStyle = barColor;
+  ctx.fillStyle = barColor;
+  const hasRoundRect = typeof ctx.roundRect === "function";
 
+  if (hasRoundRect) {
+    ctx.beginPath();
+  }
+
+  data.forEach((dp, i) => {
     const x = i * (barWidth + gap);
     const y = canvas.height - (dp || 1) / 2;
     const w = barWidth;
     const h = dp || 1;
 
-    if (ctx.roundRect) {
+    if (hasRoundRect) {
       // making sure roundRect is supported by the browser
-      ctx.beginPath();
       ctx.roundRect(x, y, w, h, 20);
-      ctx.fill();
     } else {
       // fallback for browsers that do not support roundRect
       ctx.fillRect(x, y, w, h);
     }
   });
+
+  if (hasRoundRect) {
+    ctx.fill();
+  }
 };

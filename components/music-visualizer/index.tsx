@@ -2,17 +2,12 @@
 From https://github.com/samhirtarif/react-audio-visualize
  */
 
-import {
-  type CanvasHTMLAttributes,
-  type ReactElement,
-  useCallback,
-  useEffect,
-  useRef,
-} from "react";
+import { type CanvasHTMLAttributes, memo, useEffect, useRef } from "react";
 import { calculateBarData, draw } from "./utils";
 
 export interface Props extends CanvasHTMLAttributes<HTMLCanvasElement> {
   analyser: AnalyserNode;
+  paused?: boolean;
 
   /**
    * Width of each individual bar in the visualization. Default: `2`
@@ -59,48 +54,74 @@ export interface Props extends CanvasHTMLAttributes<HTMLCanvasElement> {
   smoothingTimeConstant?: number;
 }
 
-export const MusicVisualizer: (props: Props) => ReactElement = ({
-  analyser,
-  barWidth = 2,
-  gap = 1,
-  backgroundColor = "transparent",
-  barColor = "rgb(160, 198, 255)",
-  fftSize = 1024,
-  maxDecibels = -10,
-  minDecibels = -90,
-  smoothingTimeConstant = 0.4,
-  ...props
-}: Props) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+export const MusicVisualizer = memo(
+  ({
+    analyser,
+    paused = false,
+    barWidth = 2,
+    gap = 1,
+    backgroundColor = "transparent",
+    barColor = "rgb(160, 198, 255)",
+    fftSize = 1024,
+    maxDecibels = -10,
+    minDecibels = -90,
+    smoothingTimeConstant = 0.4,
+    ...props
+  }: Props) => {
+    const canvasRef = useRef<HTMLCanvasElement>(null);
+    const animationFrameRef = useRef<number>(undefined);
+    const dataRef = useRef<Uint8Array>(undefined);
 
-  useEffect(() => {
-    analyser.fftSize = fftSize;
-    analyser.minDecibels = minDecibels;
-    analyser.maxDecibels = maxDecibels;
-    analyser.smoothingTimeConstant = smoothingTimeConstant;
+    useEffect(() => {
+      analyser.fftSize = fftSize;
+      analyser.minDecibels = minDecibels;
+      analyser.maxDecibels = maxDecibels;
+      analyser.smoothingTimeConstant = smoothingTimeConstant;
 
-    report();
-  }, [analyser]);
+      const binCount = analyser.frequencyBinCount;
+      if (!dataRef.current || dataRef.current.length !== binCount) {
+        dataRef.current = new Uint8Array(binCount);
+      }
 
-  const report = useCallback(() => {
-    if (analyser.context.state === "closed") return;
+      const report = () => {
+        if (analyser.context.state === "closed") return;
 
-    const data = new Uint8Array(analyser.frequencyBinCount);
+        const data = dataRef.current;
+        if (data && analyser.context.state === "running" && !paused) {
+          analyser.getByteFrequencyData(data as any);
+          processFrequencyData(data);
+        }
 
-    if (analyser.context.state === "running") {
-      analyser.getByteFrequencyData(data);
-    }
+        animationFrameRef.current = requestAnimationFrame(report);
+      };
 
-    processFrequencyData(data);
-    requestAnimationFrame(report);
-  }, [analyser]);
+      report();
 
-  const processFrequencyData = (data: Uint8Array): void => {
-    if (!canvasRef.current) return;
+      return () => {
+        if (animationFrameRef.current) {
+          cancelAnimationFrame(animationFrameRef.current);
+        }
+      };
+    }, [
+      analyser,
+      paused,
+      fftSize,
+      maxDecibels,
+      minDecibels,
+      smoothingTimeConstant,
+      barWidth,
+      gap,
+      backgroundColor,
+      barColor,
+    ]);
 
-    const dataPoints = calculateBarData(data, canvasRef.current.width, barWidth, gap);
-    draw(dataPoints, canvasRef.current, barWidth, gap, backgroundColor, barColor);
-  };
+    const processFrequencyData = (data: Uint8Array): void => {
+      if (!canvasRef.current) return;
 
-  return <canvas ref={canvasRef} {...props} />;
-};
+      const dataPoints = calculateBarData(data, canvasRef.current.width, barWidth, gap);
+      draw(dataPoints, canvasRef.current, barWidth, gap, backgroundColor, barColor);
+    };
+
+    return <canvas ref={canvasRef} {...props} />;
+  },
+);
