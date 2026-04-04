@@ -37,7 +37,7 @@ function Item({
   return (
     <button
       className={cn(
-        "relative flex flex-row text-left items-center gap-3 rounded-xl p-2 transition-colors group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400",
+        "relative flex flex-row text-left items-center gap-3 rounded-xl p-2 transition-colors duration-75 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-purple-400",
         playing ? "bg-purple-400/20" : "hover:bg-purple-200/5",
       )}
       onClick={() => onPlay(song)}
