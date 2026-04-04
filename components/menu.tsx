@@ -40,7 +40,7 @@ export function Menu({ musicManager }: { musicManager: MusicManager }) {
         <div className="flex flex-col gap-4">
           <SongList musicManager={musicManager} />
           <PlayerControls musicManager={musicManager} />
-          <div className="grid grid-cols-1 gap-2 mt-4">
+          <div className="grid grid-cols-2 gap-2 mt-4">
             <a
               href="https://github.com/area44/vite-lofi"
               target="_blank"
