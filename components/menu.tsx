@@ -42,7 +42,7 @@ export function Menu({ musicManager }: { musicManager: MusicManager }) {
           <PlayerControls musicManager={musicManager} />
           <div className="grid grid-cols-1 gap-2 mt-4">
             <a
-              href="https://github.com/fuma-nama/vite-lofi"
+              href="https://github.com/area44/vite-lofi"
               target="_blank"
               className={cn(
                 buttonVariants({

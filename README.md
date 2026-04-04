@@ -12,16 +12,24 @@ Clone the repository.
 git clone https://github.com/area44/vite-lofi.git
 ```
 
-Install with [pnpm](https://pnpm.io).
+Install with [Vite+](https://github.com/voidzero-dev/vite-plus).
 
 ```bash
-pnpm i
+vp install
 ```
 
 Run in development mode.
 
 ```bash
-pnpm dev
+vp dev
+```
+
+#### Code Quality
+
+Run formatting, linting, and type checks.
+
+```bash
+vp check
 ```
 
 #### Add Songs
@@ -30,10 +38,10 @@ Put your songs in the `./public` folder, and run `pnpm run generate:music` to sy
 
 #### Build
 
-This project uses Vite and React.js.
+This project uses Vite+ and React.js.
 
 ```bash
-pnpm build && pnpm preview
+vp build && vp preview
 ```
 
 ### Custom Songs
