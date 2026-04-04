@@ -1,4 +1,4 @@
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { SongList } from "@/components/control/song-list";
 import { PlayerControls } from "@/components/control/player-controls";
 import { MusicManager } from "@/lib/music-manager";
@@ -7,8 +7,8 @@ import { buttonVariants } from "@/components/ui/button";
 
 export function Menu({ musicManager }: { musicManager: MusicManager }) {
   return (
-    <Popover>
-      <PopoverTrigger
+    <Dialog>
+      <DialogTrigger
         id="menu-trigger"
         aria-label="Menu"
         className={cn(
@@ -35,25 +35,27 @@ export function Menu({ musicManager }: { musicManager: MusicManager }) {
           <line x1="4" x2="20" y1="18" y2="18" />
         </svg>
         Menu
-      </PopoverTrigger>
-      <PopoverContent>
-        <SongList musicManager={musicManager} />
-        <PlayerControls musicManager={musicManager} />
-        <div className="grid grid-cols-1 gap-2 mt-4">
-          <a
-            href="https://github.com/fuma-nama/vite-lofi"
-            target="_blank"
-            className={cn(
-              buttonVariants({
-                variant: "secondary",
-              }),
-            )}
-            rel="noreferrer noopener"
-          >
-            GitHub
-          </a>
+      </DialogTrigger>
+      <DialogContent>
+        <div className="flex flex-col gap-4">
+          <SongList musicManager={musicManager} />
+          <PlayerControls musicManager={musicManager} />
+          <div className="grid grid-cols-1 gap-2 mt-4">
+            <a
+              href="https://github.com/fuma-nama/vite-lofi"
+              target="_blank"
+              className={cn(
+                buttonVariants({
+                  variant: "secondary",
+                }),
+              )}
+              rel="noreferrer noopener"
+            >
+              GitHub
+            </a>
+          </div>
         </div>
-      </PopoverContent>
-    </Popover>
+      </DialogContent>
+    </Dialog>
   );
 }
