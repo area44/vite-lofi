@@ -16,7 +16,7 @@ async function main() {
       const base = {
         name: metadata.common.title,
         author: metadata.common.artist,
-        url: `/${item}`,
+        url: `${item}`,
       };
 
       if (metadata.common.picture) {
@@ -25,7 +25,7 @@ async function main() {
         const name = `${item}-info.${ext}`;
 
         await fs.writeFile(path.resolve("public", name), data);
-        base.picture = `/${name}`;
+        base.picture = `${name}`;
       }
 
       items.push(base);
