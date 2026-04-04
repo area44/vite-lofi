@@ -26,7 +26,7 @@ export function Gradient({ currentId }: { currentId: number }) {
         color3={set[2]}
         envPreset="city"
         // @ts-expect-error - frameRate is not in the type definition but used by the library
-        frameRate={10}
+        frameRate={60}
         grain="on"
         lightType="3d"
         positionX={0}

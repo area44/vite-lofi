@@ -100,7 +100,7 @@ export default function MusicPlayer() {
               fftSize={4096}
               barWidth={2}
               gap={6}
-              smoothingTimeConstant={0.8}
+              smoothingTimeConstant={0.4}
               minDecibels={-100}
               maxDecibels={0}
             />
@@ -166,7 +166,7 @@ const AnimatedTitle = memo(({ text }: { text: string }) => {
                 opacity: 1,
                 transition: {
                   ease: "easeInOut",
-                  delay: index++ * 0.04,
+                  delay: index++ * 0.02,
                   duration: 0.2,
                 },
               }}
