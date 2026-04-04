@@ -5,6 +5,7 @@ import { cn } from "@/lib/cn";
 const DialogRoot = Dialog.Root;
 const DialogTrigger = Dialog.Trigger;
 const DialogPortal = Dialog.Portal;
+const DialogClose = Dialog.Close;
 
 const DialogOverlay = React.forwardRef<
   HTMLDivElement,
@@ -36,26 +37,16 @@ const DialogContent = React.forwardRef<
       {...props}
     >
       {children}
-      <Dialog.Close className="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none">
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="size-4 text-purple-200"
-        >
-          <path d="M18 6 6 18" />
-          <path d="m6 6 12 12" />
-        </svg>
-        <span className="sr-only">Close</span>
-      </Dialog.Close>
     </Dialog.Popup>
   </DialogPortal>
 ));
 DialogContent.displayName = "DialogContent";
 
-export { DialogRoot as Dialog, DialogPortal, DialogOverlay, DialogTrigger, DialogContent };
+export {
+  DialogRoot as Dialog,
+  DialogPortal,
+  DialogOverlay,
+  DialogTrigger,
+  DialogContent,
+  DialogClose,
+};
