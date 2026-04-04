@@ -56,7 +56,7 @@ export function Menu({ musicManager }: { musicManager: MusicManager }) {
             <DialogClose
               className={cn(
                 buttonVariants({
-                  variant: "primary",
+                  variant: "secondary",
                 }),
               )}
             >
