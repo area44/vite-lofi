@@ -1,7 +1,6 @@
 import { cn } from "@/lib/cn";
 import { MusicManager } from "@/lib/music-manager";
 import { buttonVariants } from "@/components/ui/button";
-import { Song } from "@/music/data";
 import { Slider } from "@/components/ui/slider";
 import { useState } from "react";
 
@@ -10,20 +9,6 @@ export interface TimeControlsProps {
 }
 
 export function PlayerControls({ musicManager }: TimeControlsProps) {
-  const randomize = () => {
-    const songs = [...musicManager.queueManager.songs];
-    const newList: Song[] = [];
-
-    while (songs.length > 0) {
-      const idx = Math.floor(Math.random() * songs.length);
-      const selected = songs.splice(idx, 1)[0];
-
-      newList.push(selected);
-    }
-
-    musicManager.queueManager.setSongs(newList);
-  };
-
   return (
     <div className="flex flex-row items-center gap-2 mt-2">
       {musicManager.isPaused() ? (
@@ -68,30 +53,6 @@ export function PlayerControls({ musicManager }: TimeControlsProps) {
           </svg>
         </button>
       )}
-      <button
-        aria-label="Randomize queue"
-        className={cn(buttonVariants({ variant: "secondary" }))}
-        onClick={randomize}
-      >
-        <svg
-          width="24"
-          height="24"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          className="size-5"
-        >
-          <rect width="12" height="12" x="2" y="10" rx="2" ry="2" />
-          <path d="m17.92 14 3.5-3.5a2.24 2.24 0 0 0 0-3l-5-4.92a2.24 2.24 0 0 0-3 0L10 6" />
-          <path d="M6 18h.01" />
-          <path d="M10 14h.01" />
-          <path d="M15 6h.01" />
-          <path d="M18 9h.01" />
-        </svg>
-      </button>
       <VolumeSlider musicManager={musicManager} />
     </div>
   );
