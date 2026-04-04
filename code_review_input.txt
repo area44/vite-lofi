@@ -1,0 +1,3 @@
+I have removed the hardcoded close icon (cross) from `components/ui/dialog.tsx` and exported `DialogClose` from that file.
+Then, I updated `components/menu.tsx` to include a "Close" button at the bottom of the menu using `DialogClose` and the "primary" variant from `buttonVariants`.
+I also ran `vp check --fix` to ensure proper formatting.

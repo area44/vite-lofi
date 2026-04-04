@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog";
 import { SongList } from "@/components/control/song-list";
 import { PlayerControls } from "@/components/control/player-controls";
 import { MusicManager } from "@/lib/music-manager";
@@ -53,6 +53,15 @@ export function Menu({ musicManager }: { musicManager: MusicManager }) {
             >
               GitHub
             </a>
+            <DialogClose
+              className={cn(
+                buttonVariants({
+                  variant: "primary",
+                }),
+              )}
+            >
+              Close
+            </DialogClose>
           </div>
         </div>
       </DialogContent>
