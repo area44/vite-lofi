@@ -17,7 +17,6 @@ export interface QueueManager {
   currentIndex: number;
   songs: QueueItem[];
 
-  getPendingSongs(): QueueItem[];
   getCurrentSong(): QueueItem | undefined;
   setIndex(id: number): void;
   setSongs(songs: Song[]): void;
@@ -39,9 +38,6 @@ export function createQueueManager(options: QueueManagerOptions): QueueManager {
       // fire update
       options.onUpdate?.(this.getCurrentSong());
       options.onSongListUpdated?.(this.songs);
-    },
-    getPendingSongs() {
-      return this.songs.slice(this.currentIndex + 1);
     },
     getCurrentSong() {
       return this.songs[this.currentIndex];
