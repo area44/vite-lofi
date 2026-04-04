@@ -11,9 +11,31 @@ export interface TimeControlsProps {
 export function PlayerControls({ musicManager }: TimeControlsProps) {
   return (
     <div className="flex flex-row items-center gap-2 mt-2">
+      <button
+        aria-label="Previous song"
+        title="Previous song"
+        className={cn(buttonVariants({ variant: "secondary" }))}
+        onClick={() => musicManager.queueManager.previous()}
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="size-5"
+        >
+          <polygon points="19 20 9 12 19 4 19 20" />
+          <line x1="5" x2="5" y1="19" y2="5" />
+        </svg>
+      </button>
       {musicManager.isPaused() ? (
         <button
-          aria-label="play"
+          aria-label="Play"
+          title="Play"
           className={cn(buttonVariants({ variant: "secondary" }))}
           onClick={() => musicManager.play()}
         >
@@ -33,7 +55,8 @@ export function PlayerControls({ musicManager }: TimeControlsProps) {
         </button>
       ) : (
         <button
-          aria-label="pause"
+          aria-label="Pause"
+          title="Pause"
           className={cn(buttonVariants({ variant: "secondary" }))}
           onClick={() => musicManager.pause()}
         >
@@ -53,6 +76,27 @@ export function PlayerControls({ musicManager }: TimeControlsProps) {
           </svg>
         </button>
       )}
+      <button
+        aria-label="Next song"
+        title="Next song"
+        className={cn(buttonVariants({ variant: "secondary" }))}
+        onClick={() => musicManager.queueManager.next()}
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="size-5"
+        >
+          <polygon points="5 4 15 12 5 20 5 4" />
+          <line x1="19" x2="19" y1="5" y2="19" />
+        </svg>
+      </button>
       <VolumeSlider musicManager={musicManager} />
     </div>
   );
@@ -77,6 +121,7 @@ function VolumeSlider({ musicManager }: { musicManager: MusicManager }) {
     <>
       <button
         aria-label={value === 0 ? "Unmute volume" : "Mute volume"}
+        title={value === 0 ? "Unmute volume" : "Mute volume"}
         className={cn(buttonVariants({ variant: "ghost" }), "p-1.5 h-auto rounded-full")}
         onClick={toggleMute}
       >

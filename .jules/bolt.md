@@ -1,3 +1,4 @@
 ## 2025-05-14 - [Canvas Visualizer & React Memoization]
+
 **Learning:** High-frequency animations (60FPS) in React can cause significant CPU/GPU and GC pressure if not handled carefully. Specifically, re-instantiating typed arrays (like `Uint8Array`) in each frame leads to GC thrashing. Additionally, thousands of Canvas `fill()` calls are much slower than a single batched `fill()` on a single Path2D or path segment.
 **Action:** Always use persistent buffers (refs) for frequency data in visualizers. Batch Canvas drawing operations where possible. Use `React.memo` to isolate heavy animation components from parent state updates (like `currentTime` progress bars) that would otherwise trigger redundant component reconciliation.
