@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-slim
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Install Vite+
         uses: voidzero-dev/setup-vp@v1
