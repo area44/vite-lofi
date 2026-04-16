@@ -1,8 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  --animate-popover-in: popover-in ease-in-out 0.2s;
-  --animate-popover-out: popover-out ease-out 0.2s;
   --animate-dialog-in: dialog-in ease-in-out 0.2s;
   --animate-dialog-out: dialog-out ease-out 0.2s;
   --animate-fade-in: fade-in ease-in-out 0.2s;

@@ -46,7 +46,7 @@ vp build && vp preview
 
 ### Custom Songs
 
-With an URL of the song (must be available to client, e.g. served from `http://localhost`), you can add a custom song in the menu.
+With an URL of the song (must be available to client, e.g. served from `http://localhost:5173`), you can add a custom song in the menu.
 
 ### Demo Songs
 
