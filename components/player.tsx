@@ -4,7 +4,7 @@ import { createMusicManager, MusicManager } from "@/lib/music-manager";
 import { createShortcutManager } from "@/lib/shortcut-manager";
 import { MusicVisualizer } from "@/components/music-visualizer";
 import { formatSeconds } from "@/lib/format";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion } from "motion/react";
 import { Menu } from "@/components/menu";
 import { QueueItem } from "@/lib/queue-manager";
 import { Timeline, DurationControl } from "@/components/control/timeline";
