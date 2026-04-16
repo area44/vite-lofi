@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "generate:music": "node music/generate.mjs",
     "dev": "vp dev",
     "build": "vp build",
     "preview": "vp preview",
-    "generate:music": "node music/generate.mjs",
+    "check": "vp check --fix",
     "prepare": "vp config"
   },
   "dependencies": {
