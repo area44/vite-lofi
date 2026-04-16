@@ -17,22 +17,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Install Vite+
-        uses: voidzero-dev/setup-vp@v1
-        with:
-          node-version: "24"
-          cache: true
-
-      - name: Install dependencies
-        run: vp install
-
-      - name: Build
-        run: vp build
-
-      - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v5
-        with:
-          path: dist
+      - name: Run build
+        uses: area44/workflows/vite-plus@v4.2.0
 
   deploy:
     needs: build
