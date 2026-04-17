@@ -14,11 +14,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: voidzero-dev/setup-vp@v1
-        with:
-          cache: true
-      - run: vp build
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Run build
+        uses: area44/workflows/vite-plus@v4.2.0
 
   deploy:
     needs: build
