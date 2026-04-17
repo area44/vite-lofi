@@ -1,6 +1,6 @@
 import { expect, test } from "vite-plus/test";
 
-import { formatSeconds } from "./format";
+import { formatSeconds } from "@/lib/format";
 
 test("formatSeconds formats seconds correctly", () => {
   expect(formatSeconds(0)).toBe("00:00");

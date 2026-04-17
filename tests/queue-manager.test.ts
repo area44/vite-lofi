@@ -2,7 +2,7 @@ import { expect, test, vi } from "vite-plus/test";
 
 import type { Song } from "@/music/data";
 
-import { createQueueManager, type QueueItem } from "./queue-manager";
+import { createQueueManager, type QueueItem } from "@/lib/queue-manager";
 
 const mockSongs: Song[] = [
   { name: "Song 1", author: "Artist 1", url: "url1" },
