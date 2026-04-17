@@ -2,7 +2,7 @@
 From https://github.com/samhirtarif/react-audio-visualize
  */
 
-import { type CanvasHTMLAttributes, memo, useEffect, useRef } from "react";
+import { type CanvasHTMLAttributes, memo, useEffect, useRef, useCallback } from "react";
 
 import { calculateBarData, draw } from "./utils";
 
@@ -73,6 +73,16 @@ export const MusicVisualizer = memo(
     const animationFrameRef = useRef<number>(undefined);
     const dataRef = useRef<Uint8Array>(undefined);
 
+    const processFrequencyData = useCallback(
+      (data: Uint8Array): void => {
+        if (!canvasRef.current) return;
+
+        const dataPoints = calculateBarData(data, canvasRef.current.width, barWidth, gap);
+        draw(dataPoints, canvasRef.current, barWidth, gap, backgroundColor, barColor);
+      },
+      [barWidth, gap, backgroundColor, barColor],
+    );
+
     useEffect(() => {
       analyser.fftSize = fftSize;
       analyser.minDecibels = minDecibels;
@@ -110,18 +120,8 @@ export const MusicVisualizer = memo(
       maxDecibels,
       minDecibels,
       smoothingTimeConstant,
-      barWidth,
-      gap,
-      backgroundColor,
-      barColor,
+      processFrequencyData,
     ]);
-
-    const processFrequencyData = (data: Uint8Array): void => {
-      if (!canvasRef.current) return;
-
-      const dataPoints = calculateBarData(data, canvasRef.current.width, barWidth, gap);
-      draw(dataPoints, canvasRef.current, barWidth, gap, backgroundColor, barColor);
-    };
 
     return <canvas ref={canvasRef} {...props} />;
   },
