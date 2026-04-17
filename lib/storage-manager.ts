@@ -1,5 +1,6 @@
+import type { Song } from "@/music/data";
+
 import defaultSongs from "@/music/data.json";
-import { Song } from "@/music/data";
 
 export interface StorageManager {
   loadSongs(): Song[];

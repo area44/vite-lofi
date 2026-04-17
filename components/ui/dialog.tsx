@@ -1,5 +1,6 @@
-import * as React from "react";
 import { Dialog } from "@base-ui/react";
+import * as React from "react";
+
 import { cn } from "@/lib/cn";
 
 const DialogRoot = Dialog.Root;
@@ -14,7 +15,7 @@ const DialogOverlay = React.forwardRef<
   <Dialog.Backdrop
     ref={ref}
     className={cn(
-      "fixed inset-0 z-50 bg-black/20 backdrop-blur-lg data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out",
+      "fixed inset-0 z-50 bg-black/20 backdrop-blur-lg data-[state=closed]:animate-fade-out data-[state=open]:animate-fade-in",
       className as string,
     )}
     {...props}
@@ -31,7 +32,7 @@ const DialogContent = React.forwardRef<
     <Dialog.Popup
       ref={ref}
       className={cn(
-        "fixed left-[50%] top-[50%] rounded-lg text-purple-100 z-50 w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 bg-purple-950/70 p-6 shadow-lg data-[state=open]:animate-dialog-in data-[state=closed]:animate-dialog-out",
+        "fixed top-[50%] left-[50%] z-50 w-full max-w-lg translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg bg-purple-950/70 p-6 text-purple-100 shadow-lg data-[state=closed]:animate-dialog-out data-[state=open]:animate-dialog-in",
         className as string,
       )}
       {...props}

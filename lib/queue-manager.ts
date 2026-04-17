@@ -1,4 +1,5 @@
-import { Song } from "@/music/data";
+import type { Song } from "@/music/data";
+
 import songs from "@/music/data.json";
 
 export interface QueueItem extends Song {

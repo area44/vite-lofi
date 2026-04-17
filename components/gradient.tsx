@@ -1,5 +1,5 @@
+import { useMemo } from "react";
 import { ShaderGradient, ShaderGradientCanvas } from "shadergradient";
-import React, { useMemo } from "react";
 
 const colorSets = [
   ["#606080", "#8d7dca", "#212121"],

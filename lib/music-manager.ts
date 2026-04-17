@@ -1,11 +1,9 @@
-import { Song } from "@/music/data";
-import {
-  createQueueManager,
-  QueueItem,
-  QueueManager,
-  QueueManagerOptions,
-} from "@/lib/queue-manager";
-import { createStorageManager, StorageManager } from "@/lib/storage-manager";
+import type { QueueItem, QueueManager, QueueManagerOptions } from "@/lib/queue-manager";
+import type { StorageManager } from "@/lib/storage-manager";
+import type { Song } from "@/music/data";
+
+import { createQueueManager } from "@/lib/queue-manager";
+import { createStorageManager } from "@/lib/storage-manager";
 
 export interface MusicManager {
   storageManager: StorageManager;
@@ -59,7 +57,7 @@ export function createMusicManager({
       options.onTimeUpdate?.(0, 0);
     },
     onSongListUpdated,
-  });
+  } as QueueManagerOptions);
 
   const init = () => {
     const source = context.createMediaElementSource(audio);

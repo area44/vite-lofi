@@ -1,4 +1,4 @@
-import { MusicManager } from "@/lib/music-manager";
+import type { MusicManager } from "@/lib/music-manager";
 
 export interface ShortcutManagerOptions {
   musicManager: MusicManager;

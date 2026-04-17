@@ -1,9 +1,10 @@
-import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog";
-import { SongList } from "@/components/control/song-list";
+import type { MusicManager } from "@/lib/music-manager";
+
 import { PlayerControls } from "@/components/control/player-controls";
-import { MusicManager } from "@/lib/music-manager";
-import { cn } from "@/lib/cn";
+import { SongList } from "@/components/control/song-list";
 import { buttonVariants } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogTrigger, DialogClose } from "@/components/ui/dialog";
+import { cn } from "@/lib/cn";
 
 export function Menu({ musicManager }: { musicManager: MusicManager }) {
   return (
@@ -40,7 +41,7 @@ export function Menu({ musicManager }: { musicManager: MusicManager }) {
         <div className="flex flex-col gap-4">
           <SongList musicManager={musicManager} />
           <PlayerControls musicManager={musicManager} />
-          <div className="grid grid-cols-2 gap-2 mt-4">
+          <div className="mt-4 grid grid-cols-2 gap-2">
             <a
               href="https://github.com/area44/vite-lofi"
               target="_blank"

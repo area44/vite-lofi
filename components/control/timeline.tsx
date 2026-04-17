@@ -1,5 +1,9 @@
-import { MusicManager } from "@/lib/music-manager";
-import { MutableRefObject, useEffect, useRef, useState } from "react";
+import type { MutableRefObject, RefObject } from "react";
+
+import { useEffect, useRef, useState } from "react";
+
+import type { MusicManager } from "@/lib/music-manager";
+
 import { Slider } from "@/components/ui/slider";
 
 export type DurationControl = (percent: number) => void;
@@ -8,19 +12,21 @@ export function Timeline({
   musicManager,
   durationRef,
 }: {
-  musicManager?: MusicManager;
-  durationRef: MutableRefObject<DurationControl | undefined>;
+  musicManager: MusicManager | undefined;
+  durationRef:
+    | MutableRefObject<DurationControl | undefined>
+    | RefObject<DurationControl | undefined>;
 }) {
   const [value, setValue] = useState(0);
   const isDrawingRef = useRef(false);
 
   useEffect(() => {
-    durationRef.current = (percent) => {
+    (durationRef as any).current = (percent: number) => {
       if (isDrawingRef.current) return;
 
       setValue(percent / 100);
     };
-  }, []);
+  }, [durationRef]);
 
   return (
     <Slider

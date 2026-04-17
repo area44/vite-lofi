@@ -3,6 +3,7 @@ From https://github.com/samhirtarif/react-audio-visualize
  */
 
 import { type CanvasHTMLAttributes, memo, useEffect, useRef } from "react";
+
 import { calculateBarData, draw } from "./utils";
 
 export interface Props extends CanvasHTMLAttributes<HTMLCanvasElement> {

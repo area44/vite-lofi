@@ -1,8 +1,8 @@
-import { defineConfig } from "vite-plus";
-import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite-plus";
 
-const base = process.env.BASE || "/";
+const base = process.env["BASE"] || "/";
 
 export default defineConfig({
   staged: {
@@ -33,7 +33,7 @@ export default defineConfig({
       ],
     },
     sortTailwindcss: {
-      stylesheet: "./src/styles/globals.css",
+      stylesheet: "./src/globals.css",
       attributes: ["class", "className"],
       functions: ["clsx", "cn", "cva", "tv"],
     },
