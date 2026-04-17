@@ -8,6 +8,7 @@
     "dev": "vp dev",
     "build": "vp build",
     "preview": "vp preview",
+    "test": "vp test",
     "check": "vp check --fix",
     "prepare": "vp config"
   },
