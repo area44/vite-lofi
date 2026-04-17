@@ -1,8 +1,10 @@
-import { cn } from "@/lib/cn";
-import { MusicManager } from "@/lib/music-manager";
+import { useState } from "react";
+
+import type { MusicManager } from "@/lib/music-manager";
+
 import { buttonVariants } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
-import { useState } from "react";
+import { cn } from "@/lib/cn";
 
 export interface TimeControlsProps {
   musicManager: MusicManager;
@@ -10,7 +12,7 @@ export interface TimeControlsProps {
 
 export function PlayerControls({ musicManager }: TimeControlsProps) {
   return (
-    <div className="flex flex-row items-center gap-2 mt-2">
+    <div className="mt-2 flex flex-row items-center gap-2">
       <button
         aria-label="Previous song"
         title="Previous song"
@@ -122,7 +124,7 @@ function VolumeSlider({ musicManager }: { musicManager: MusicManager }) {
       <button
         aria-label={value === 0 ? "Unmute volume" : "Mute volume"}
         title={value === 0 ? "Unmute volume" : "Mute volume"}
-        className={cn(buttonVariants({ variant: "ghost" }), "p-1.5 h-auto rounded-full")}
+        className={cn(buttonVariants({ variant: "ghost" }), "h-auto rounded-full p-1.5")}
         onClick={toggleMute}
       >
         <svg
