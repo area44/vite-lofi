@@ -1,7 +1,5 @@
 import type { Song } from "@/music/data";
 
-import songs from "@/music/data.json";
-
 export interface QueueItem extends Song {
   /**
    * Absolute index in the queue
@@ -48,7 +46,7 @@ export function createQueueManager(options: QueueManagerOptions): QueueManager {
 
       if (this.songs.length === 0) target = -1;
       else if (id >= this.songs.length) target = 0;
-      else if (id < 0) target = songs.length - 1;
+      else if (id < 0) target = this.songs.length - 1;
       else target = id;
 
       if (this.currentIndex === target) return;
