@@ -19,8 +19,8 @@ importers:
         specifier: ^5.2.8
         version: 5.2.8
       '@react-spring/three':
-        specifier: ^10.0.3
-        version: 10.0.3(@react-three/fiber@9.6.1(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(three@0.184.0))(react@19.2.6)(three@0.184.0)
+        specifier: ^10.0.4
+        version: 10.1.0(@react-three/fiber@9.6.1(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(three@0.184.0))(react@19.2.6)(three@0.184.0)
       '@react-three/drei':
         specifier: ^10.7.7
         version: 10.7.7(@react-three/fiber@9.6.1(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(three@0.184.0))(@types/react@19.2.15)(@types/three@0.184.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(three@0.184.0)
@@ -458,33 +458,33 @@ packages:
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
 
-  '@react-spring/animated@10.0.3':
-    resolution: {integrity: sha512-7MrxADV3vaUADn2V9iYhaIL6iOWRx9nCJjYrsk2AHD2kwPr6fg7Pt0v+deX5RnCDmCKNnD6W5fasiyM8D+wzJQ==}
+  '@react-spring/animated@10.1.0':
+    resolution: {integrity: sha512-dvGVSfNYhbkzTAnyB1S1940ZiKp6/Ey+b2vQc70dJ5k6gzH/GdlfeDzCh65V94b6OPqF7Xl4VUICVUQpc07iUg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@react-spring/core@10.0.3':
-    resolution: {integrity: sha512-D4DwNO68oohDf/0HG2G0Uragzb9IA1oXblxrd6MZAcBcUQG2EHUWXewjdECMPLNmQvlYVyyBRH6gPxXM5DX7DQ==}
+  '@react-spring/core@10.1.0':
+    resolution: {integrity: sha512-XUG3UCCCxay6lYjBU2KOKzEgC1sx/w44ouB5gRh2Ex6rVJOdPcGVg7JJUIOAQo7uhKGfQdCQU4qUZaQnmInZPQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@react-spring/rafz@10.0.3':
-    resolution: {integrity: sha512-Ri2/xqt8OnQ2iFKkxKMSF4Nqv0LSWnxXT4jXFzBDsHgeeH/cHxTLupAWUwmV9hAGgmEhBmh5aONtj3J6R/18wg==}
+  '@react-spring/rafz@10.1.0':
+    resolution: {integrity: sha512-e/LRnNmvmg8Agl4j3MGcjHuSTSBcCrxr3xeoWdodxpLWeTHY1pHl8PJDOCEJ2Pj6BMdEBaWFRAX7uxRo1FLzCg==}
 
-  '@react-spring/shared@10.0.3':
-    resolution: {integrity: sha512-geCal66nrkaQzUVhPkGomylo+Jpd5VPK8tPMEDevQEfNSWAQP15swHm+MCRG4wVQrQlTi9lOzKzpRoTL3CA84Q==}
+  '@react-spring/shared@10.1.0':
+    resolution: {integrity: sha512-ogIUujWxdwcsQ2Vp2hZs+KehvH8tKeWGHsFb1eRBYoePzhKS541Qg1JfFlQ7ursBUwwPDBQ5Wpwn+Cwx6WV1PQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@react-spring/three@10.0.3':
-    resolution: {integrity: sha512-hZP7ChF/EwnWn+H2xuzAsRRfQdhquoBTI1HKgO6X9V8tcVCuR69qJmsA9N00CA4Nzx0bo/zwBtqONmi55Ffm5w==}
+  '@react-spring/three@10.1.0':
+    resolution: {integrity: sha512-/XhDlpfVfsmIBMzK38M999oexmeyt+wlTLc66XTJKR/XlRpo9dpCGA+6viS+XjwEfD/S9/GlDrsTBy6vKiuxZA==}
     peerDependencies:
       '@react-three/fiber': '>=6.0'
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       three: '>=0.126'
 
-  '@react-spring/types@10.0.3':
-    resolution: {integrity: sha512-H5Ixkd2OuSIgHtxuHLTt7aJYfhMXKXT/rK32HPD/kSrOB6q6ooeiWAXkBy7L8F3ZxdkBb9ini9zP9UwnEFzWgQ==}
+  '@react-spring/types@10.1.0':
+    resolution: {integrity: sha512-RkJAlkAZ5yZSRBMOSidamioBHLjf8wGKbtr3pZ5iKoHFNQuNM2k6DqJDIEUcNQlWRZXny6Eqys2c9NdugdbdyQ==}
 
   '@react-three/drei@10.7.7':
     resolution: {integrity: sha512-ff+J5iloR0k4tC++QtD/j9u3w5fzfgFAWDtAGQah9pF2B1YgOq/5JxqY0/aVoQG5r3xSZz0cv5tk2YuBob4xEQ==}
@@ -1593,38 +1593,38 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
-  '@react-spring/animated@10.0.3(react@19.2.6)':
+  '@react-spring/animated@10.1.0(react@19.2.6)':
     dependencies:
-      '@react-spring/shared': 10.0.3(react@19.2.6)
-      '@react-spring/types': 10.0.3
+      '@react-spring/shared': 10.1.0(react@19.2.6)
+      '@react-spring/types': 10.1.0
       react: 19.2.6
 
-  '@react-spring/core@10.0.3(react@19.2.6)':
+  '@react-spring/core@10.1.0(react@19.2.6)':
     dependencies:
-      '@react-spring/animated': 10.0.3(react@19.2.6)
-      '@react-spring/shared': 10.0.3(react@19.2.6)
-      '@react-spring/types': 10.0.3
+      '@react-spring/animated': 10.1.0(react@19.2.6)
+      '@react-spring/shared': 10.1.0(react@19.2.6)
+      '@react-spring/types': 10.1.0
       react: 19.2.6
 
-  '@react-spring/rafz@10.0.3': {}
+  '@react-spring/rafz@10.1.0': {}
 
-  '@react-spring/shared@10.0.3(react@19.2.6)':
+  '@react-spring/shared@10.1.0(react@19.2.6)':
     dependencies:
-      '@react-spring/rafz': 10.0.3
-      '@react-spring/types': 10.0.3
+      '@react-spring/rafz': 10.1.0
+      '@react-spring/types': 10.1.0
       react: 19.2.6
 
-  '@react-spring/three@10.0.3(@react-three/fiber@9.6.1(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(three@0.184.0))(react@19.2.6)(three@0.184.0)':
+  '@react-spring/three@10.1.0(@react-three/fiber@9.6.1(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(three@0.184.0))(react@19.2.6)(three@0.184.0)':
     dependencies:
-      '@react-spring/animated': 10.0.3(react@19.2.6)
-      '@react-spring/core': 10.0.3(react@19.2.6)
-      '@react-spring/shared': 10.0.3(react@19.2.6)
-      '@react-spring/types': 10.0.3
+      '@react-spring/animated': 10.1.0(react@19.2.6)
+      '@react-spring/core': 10.1.0(react@19.2.6)
+      '@react-spring/shared': 10.1.0(react@19.2.6)
+      '@react-spring/types': 10.1.0
       '@react-three/fiber': 9.6.1(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(three@0.184.0)
       react: 19.2.6
       three: 0.184.0
 
-  '@react-spring/types@10.0.3': {}
+  '@react-spring/types@10.1.0': {}
 
   '@react-three/drei@10.7.7(@react-three/fiber@9.6.1(@types/react@19.2.15)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(three@0.184.0))(@types/react@19.2.15)(@types/three@0.184.1)(react-dom@19.2.6(react@19.2.6))(react@19.2.6)(three@0.184.0)':
     dependencies:
