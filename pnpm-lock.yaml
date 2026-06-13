@@ -19,8 +19,8 @@ importers:
         specifier: ^5.2.8
         version: 5.2.8
       '@react-spring/three':
-        specifier: ^10.1.0
-        version: 10.1.0(@react-three/fiber@9.6.1(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(three@0.184.0))(react@19.2.7)(three@0.184.0)
+        specifier: ^10.1.1
+        version: 10.1.1(@react-three/fiber@9.6.1(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(three@0.184.0))(react@19.2.7)(three@0.184.0)
       '@react-three/drei':
         specifier: ^10.7.7
         version: 10.7.7(@react-three/fiber@9.6.1(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(three@0.184.0))(@types/react@19.2.17)(@types/three@0.184.1)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(three@0.184.0)
@@ -29,7 +29,7 @@ importers:
         version: 9.6.1(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(three@0.184.0)
       '@vitejs/plugin-react':
         specifier: ^6.0.2
-        version: 6.0.2(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))
+        version: 6.0.2(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))
       cva:
         specifier: npm:class-variance-authority@^0.7.1
         version: class-variance-authority@0.7.1
@@ -37,8 +37,8 @@ importers:
         specifier: ^12.40.0
         version: 12.40.0(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       music-metadata:
-        specifier: ^11.12.3
-        version: 11.12.3
+        specifier: ^11.13.0
+        version: 11.13.0
       react:
         specifier: ^19.2.7
         version: 19.2.7
@@ -60,10 +60,10 @@ importers:
     devDependencies:
       '@tailwindcss/vite':
         specifier: ^4.3.0
-        version: 4.3.0(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))
+        version: 4.3.0(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))
       '@types/node':
-        specifier: ^25.9.2
-        version: 25.9.2
+        specifier: ^25.9.3
+        version: 25.9.3
       '@types/react':
         specifier: ^19.2.17
         version: 19.2.17
@@ -81,13 +81,13 @@ importers:
         version: 6.0.3
       vite:
         specifier: npm:@voidzero-dev/vite-plus-core@^0.1.24
-        version: '@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3)'
+        version: '@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3)'
       vite-plus:
         specifier: ^0.1.24
-        version: 0.1.24(@types/node@25.9.2)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)
+        version: 0.1.24(@types/node@25.9.3)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)
       vitest:
         specifier: npm:@voidzero-dev/vite-plus-test@^0.1.24
-        version: '@voidzero-dev/vite-plus-test@0.1.24(@types/node@25.9.2)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)'
+        version: '@voidzero-dev/vite-plus-test@0.1.24(@types/node@25.9.3)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)'
 
 packages:
 
@@ -458,33 +458,33 @@ packages:
   '@polka/url@1.0.0-next.29':
     resolution: {integrity: sha512-wwQAWhWSuHaag8c4q/KN/vCoeOJYshAIvMQwD4GpSb3OiZklFfvAgmj0VCBBImRpuF/aFgIRzllXlVX93Jevww==}
 
-  '@react-spring/animated@10.1.0':
-    resolution: {integrity: sha512-dvGVSfNYhbkzTAnyB1S1940ZiKp6/Ey+b2vQc70dJ5k6gzH/GdlfeDzCh65V94b6OPqF7Xl4VUICVUQpc07iUg==}
+  '@react-spring/animated@10.1.1':
+    resolution: {integrity: sha512-kqdtIzr1GfBmbojnYhNdEhgu23f1rQ9H98K6KGmWHpNBP0gGZWN8KEIzGYwCAon7Q8ktGmsR1dCyy6QTI4egug==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@react-spring/core@10.1.0':
-    resolution: {integrity: sha512-XUG3UCCCxay6lYjBU2KOKzEgC1sx/w44ouB5gRh2Ex6rVJOdPcGVg7JJUIOAQo7uhKGfQdCQU4qUZaQnmInZPQ==}
+  '@react-spring/core@10.1.1':
+    resolution: {integrity: sha512-eCxEJuJzNxbfFXEr+BuMqp+LYv0fdvIO/lk6B+A/aUDxD4M4EBKizPqhCkMz/B+U12d99KTAUSmWaGul/Lly+w==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@react-spring/rafz@10.1.0':
-    resolution: {integrity: sha512-e/LRnNmvmg8Agl4j3MGcjHuSTSBcCrxr3xeoWdodxpLWeTHY1pHl8PJDOCEJ2Pj6BMdEBaWFRAX7uxRo1FLzCg==}
+  '@react-spring/rafz@10.1.1':
+    resolution: {integrity: sha512-F7n2fU8EO8OokBkUHivU/tJ9HnL/QTIgd8V/2BhHFSrszt+OaLUoqEinomNeedLPIs24skiXQtki4APJHxghDQ==}
 
-  '@react-spring/shared@10.1.0':
-    resolution: {integrity: sha512-ogIUujWxdwcsQ2Vp2hZs+KehvH8tKeWGHsFb1eRBYoePzhKS541Qg1JfFlQ7ursBUwwPDBQ5Wpwn+Cwx6WV1PQ==}
+  '@react-spring/shared@10.1.1':
+    resolution: {integrity: sha512-pOoQPoOa+EPWrRndqIYlIms71fNB1p0IQVJcCi5xHtErqL8N0+jS1V9pExHfryqn9aUhHv0+7kMiVrcb6U+IBQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  '@react-spring/three@10.1.0':
-    resolution: {integrity: sha512-/XhDlpfVfsmIBMzK38M999oexmeyt+wlTLc66XTJKR/XlRpo9dpCGA+6viS+XjwEfD/S9/GlDrsTBy6vKiuxZA==}
+  '@react-spring/three@10.1.1':
+    resolution: {integrity: sha512-nJN7D9ElnwT3q35e3m9zezzmrv+QAJ2gtlzlaljSSfD3IA+2wnE49nRx0w6gLSLKwdWY9aoM68KBxwJVa+7ckg==}
     peerDependencies:
       '@react-three/fiber': '>=6.0'
       react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
       three: '>=0.126'
 
-  '@react-spring/types@10.1.0':
-    resolution: {integrity: sha512-RkJAlkAZ5yZSRBMOSidamioBHLjf8wGKbtr3pZ5iKoHFNQuNM2k6DqJDIEUcNQlWRZXny6Eqys2c9NdugdbdyQ==}
+  '@react-spring/types@10.1.1':
+    resolution: {integrity: sha512-C35b9XigBnwv1fZsUGR/lWzAKBskGhdAmf0LIBvqhwwHTYMtat4DXHZEnFyJQvfCAmpVc/d9Yug7j2Lbv2GDEA==}
 
   '@react-three/drei@10.7.7':
     resolution: {integrity: sha512-ff+J5iloR0k4tC++QtD/j9u3w5fzfgFAWDtAGQah9pF2B1YgOq/5JxqY0/aVoQG5r3xSZz0cv5tk2YuBob4xEQ==}
@@ -641,8 +641,8 @@ packages:
   '@types/draco3d@1.4.10':
     resolution: {integrity: sha512-AX22jp8Y7wwaBgAixaSvkoG4M/+PlAcm3Qs4OW8yT9DM4xUpWKeFhLueTAyZF39pviAdcDdeJoACapiAceqNcw==}
 
-  '@types/node@25.9.2':
-    resolution: {integrity: sha512-G05zqtJhcDLb8uslf5EjCxXg9G1KQxiV8OS0R26IC//Eoyitzqe8z37I7cqvnZlrlSfgocQRfSn/AHBZJJFyGw==}
+  '@types/node@25.9.3':
+    resolution: {integrity: sha512-603BddQMv3pUcr4U2dhujk83N2tTDVr/34wII2B6bJy6g+8WD6yUb11jszNs0gdi4PesVWl7ABt8nYMVpnLUcg==}
 
   '@types/offscreencanvas@2019.7.3':
     resolution: {integrity: sha512-ieXiYmgSRXUDeOntE1InxjWyvEelZGP63M+cGuquuRLuIKKT1osnkXjxev9B7d1nXSug5vpunx+gNlbVxMlC9A==}
@@ -862,9 +862,9 @@ packages:
     resolution: {integrity: sha512-eYm0QWBtUrBWZWG0d386OGAw16Z995PiOVo2B7bjWSbHedGl5e0ZWaq65kOGgUSNesEIDkB9ISbTg/JK9dhCZA==}
     engines: {node: '>=6'}
 
-  content-type@1.0.5:
-    resolution: {integrity: sha512-nTjqfcBFEipKdXCv4YDQWCfmcLZKm81ldF0pAopTvyrFGVbcR6P/VAAd5G7N+0tTr8QqiU0tFadD6FK4NtJwOA==}
-    engines: {node: '>= 0.6'}
+  content-type@2.0.0:
+    resolution: {integrity: sha512-j/O/d7GcZCyNl7/hwZAb606rzqkyvaDctLmckbxLzHvFBzTJHuGEdodATcP3yIRoDrLHkIATJuvzbFlp/ki2cQ==}
+    engines: {node: '>=18'}
 
   cross-env@7.0.3:
     resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}
@@ -1058,9 +1058,9 @@ packages:
   magic-string@0.30.21:
     resolution: {integrity: sha512-vd2F4YUyEXKGcLHoq+TEyCjxueSeHnFxyyjNp80yg0XV4vUhnDer/lvvlqM/arB5bXQN5K2/3oinyCRyx8T2CQ==}
 
-  media-typer@1.1.0:
-    resolution: {integrity: sha512-aisnrDP4GNe06UcKFnV5bfMNPBUw4jsLGaWwWfnH3v02GnBuXX2MCVn5RbrWo0j3pczUilYblq7fQ7Nw2t5XKw==}
-    engines: {node: '>= 0.8'}
+  media-typer@2.0.0:
+    resolution: {integrity: sha512-kOy3OxT2HH39N70UnKgu4NWDZjLOz8W/mfyvniHjRH/DrL3f2pOfvWQ4p60offbbtDAnXWp0v9LfMIqMec269Q==}
+    engines: {node: '>=18'}
 
   meshline@3.3.1:
     resolution: {integrity: sha512-/TQj+JdZkeSUOl5Mk2J7eLcYTLiQm2IDzmlSvYm7ov15anEcDJ92GHqqazxTSreeNgfnYu24kiEvvv0WlbCdFQ==}
@@ -1097,8 +1097,8 @@ packages:
   ms@2.1.3:
     resolution: {integrity: sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==}
 
-  music-metadata@11.12.3:
-    resolution: {integrity: sha512-n6hSTZkuD59qWgHh6IP5dtDlDZQXoxk/bcA85Jywg8Z1iFrlNgl2+GTFgjZyn52W5UgQpV42V4XqrQZZAMbZTQ==}
+  music-metadata@11.13.0:
+    resolution: {integrity: sha512-uXRaov9dfjSpQufXIU7sMxVZnh+FilCQv2mXn+K5EJ/decP3dTWrgvPYa5r6MtRbieNSCE708Da4J0u1UGfQIw==}
     engines: {node: '>=18'}
 
   nanoid@3.3.12:
@@ -1605,38 +1605,38 @@ snapshots:
 
   '@polka/url@1.0.0-next.29': {}
 
-  '@react-spring/animated@10.1.0(react@19.2.7)':
+  '@react-spring/animated@10.1.1(react@19.2.7)':
     dependencies:
-      '@react-spring/shared': 10.1.0(react@19.2.7)
-      '@react-spring/types': 10.1.0
+      '@react-spring/shared': 10.1.1(react@19.2.7)
+      '@react-spring/types': 10.1.1
       react: 19.2.7
 
-  '@react-spring/core@10.1.0(react@19.2.7)':
+  '@react-spring/core@10.1.1(react@19.2.7)':
     dependencies:
-      '@react-spring/animated': 10.1.0(react@19.2.7)
-      '@react-spring/shared': 10.1.0(react@19.2.7)
-      '@react-spring/types': 10.1.0
+      '@react-spring/animated': 10.1.1(react@19.2.7)
+      '@react-spring/shared': 10.1.1(react@19.2.7)
+      '@react-spring/types': 10.1.1
       react: 19.2.7
 
-  '@react-spring/rafz@10.1.0': {}
+  '@react-spring/rafz@10.1.1': {}
 
-  '@react-spring/shared@10.1.0(react@19.2.7)':
+  '@react-spring/shared@10.1.1(react@19.2.7)':
     dependencies:
-      '@react-spring/rafz': 10.1.0
-      '@react-spring/types': 10.1.0
+      '@react-spring/rafz': 10.1.1
+      '@react-spring/types': 10.1.1
       react: 19.2.7
 
-  '@react-spring/three@10.1.0(@react-three/fiber@9.6.1(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(three@0.184.0))(react@19.2.7)(three@0.184.0)':
+  '@react-spring/three@10.1.1(@react-three/fiber@9.6.1(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(three@0.184.0))(react@19.2.7)(three@0.184.0)':
     dependencies:
-      '@react-spring/animated': 10.1.0(react@19.2.7)
-      '@react-spring/core': 10.1.0(react@19.2.7)
-      '@react-spring/shared': 10.1.0(react@19.2.7)
-      '@react-spring/types': 10.1.0
+      '@react-spring/animated': 10.1.1(react@19.2.7)
+      '@react-spring/core': 10.1.1(react@19.2.7)
+      '@react-spring/shared': 10.1.1(react@19.2.7)
+      '@react-spring/types': 10.1.1
       '@react-three/fiber': 9.6.1(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(three@0.184.0)
       react: 19.2.7
       three: 0.184.0
 
-  '@react-spring/types@10.1.0': {}
+  '@react-spring/types@10.1.1': {}
 
   '@react-three/drei@10.7.7(@react-three/fiber@9.6.1(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(three@0.184.0))(@types/react@19.2.17)(@types/three@0.184.1)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)(three@0.184.0)':
     dependencies:
@@ -1756,12 +1756,12 @@ snapshots:
       '@tailwindcss/oxide-win32-arm64-msvc': 4.3.0
       '@tailwindcss/oxide-win32-x64-msvc': 4.3.0
 
-  '@tailwindcss/vite@4.3.0(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))':
+  '@tailwindcss/vite@4.3.0(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))':
     dependencies:
       '@tailwindcss/node': 4.3.0
       '@tailwindcss/oxide': 4.3.0
       tailwindcss: 4.3.0
-      vite: '@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3)'
+      vite: '@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3)'
 
   '@tokenizer/inflate@0.4.1':
     dependencies:
@@ -1783,7 +1783,7 @@ snapshots:
 
   '@types/draco3d@1.4.10': {}
 
-  '@types/node@25.9.2':
+  '@types/node@25.9.3':
     dependencies:
       undici-types: 7.24.6
 
@@ -1821,19 +1821,19 @@ snapshots:
       '@use-gesture/core': 10.3.1
       react: 19.2.7
 
-  '@vitejs/plugin-react@6.0.2(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))':
+  '@vitejs/plugin-react@6.0.2(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))':
     dependencies:
       '@rolldown/pluginutils': 1.0.1
-      vite: '@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3)'
+      vite: '@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3)'
 
-  '@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3)':
+  '@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3)':
     dependencies:
       '@oxc-project/runtime': 0.133.0
       '@oxc-project/types': 0.133.0
       lightningcss: 1.32.0
       postcss: 8.5.15
     optionalDependencies:
-      '@types/node': 25.9.2
+      '@types/node': 25.9.3
       fsevents: 2.3.3
       jiti: 2.7.0
       typescript: 6.0.3
@@ -1856,11 +1856,11 @@ snapshots:
   '@voidzero-dev/vite-plus-linux-x64-musl@0.1.24':
     optional: true
 
-  '@voidzero-dev/vite-plus-test@0.1.24(@types/node@25.9.2)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)':
+  '@voidzero-dev/vite-plus-test@0.1.24(@types/node@25.9.3)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)':
     dependencies:
       '@standard-schema/spec': 1.1.0
       '@types/chai': 5.2.3
-      '@voidzero-dev/vite-plus-core': 0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3)
+      '@voidzero-dev/vite-plus-core': 0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3)
       es-module-lexer: 1.7.0
       obug: 2.1.2
       pixelmatch: 7.2.0
@@ -1870,10 +1870,10 @@ snapshots:
       tinybench: 2.9.0
       tinyexec: 1.2.4
       tinyglobby: 0.2.17
-      vite: '@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3)'
+      vite: '@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3)'
       ws: 8.21.0
     optionalDependencies:
-      '@types/node': 25.9.2
+      '@types/node': 25.9.3
     transitivePeerDependencies:
       - '@arethetypeswrong/core'
       - '@tsdown/css'
@@ -1925,7 +1925,7 @@ snapshots:
 
   clsx@2.1.1: {}
 
-  content-type@1.0.5: {}
+  content-type@2.0.0: {}
 
   cross-env@7.0.3:
     dependencies:
@@ -2072,7 +2072,7 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.5
 
-  media-typer@1.1.0: {}
+  media-typer@2.0.0: {}
 
   meshline@3.3.1(three@0.184.0):
     dependencies:
@@ -2098,14 +2098,14 @@ snapshots:
 
   ms@2.1.3: {}
 
-  music-metadata@11.12.3:
+  music-metadata@11.13.0:
     dependencies:
       '@borewit/text-codec': 0.2.2
       '@tokenizer/token': 0.3.0
-      content-type: 1.0.5
+      content-type: 2.0.0
       debug: 4.4.3
       file-type: 21.3.4
-      media-typer: 1.1.0
+      media-typer: 2.0.0
       strtok3: 10.3.5
       token-types: 6.1.2
       uint8array-extras: 1.5.0
@@ -2117,7 +2117,7 @@ snapshots:
 
   obug@2.1.2: {}
 
-  oxfmt@0.52.0(vite-plus@0.1.24(@types/node@25.9.2)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)):
+  oxfmt@0.52.0(vite-plus@0.1.24(@types/node@25.9.3)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)):
     dependencies:
       tinypool: 2.1.0
     optionalDependencies:
@@ -2140,7 +2140,7 @@ snapshots:
       '@oxfmt/binding-win32-arm64-msvc': 0.52.0
       '@oxfmt/binding-win32-ia32-msvc': 0.52.0
       '@oxfmt/binding-win32-x64-msvc': 0.52.0
-      vite-plus: 0.1.24(@types/node@25.9.2)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)
+      vite-plus: 0.1.24(@types/node@25.9.3)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)
 
   oxlint-tsgolint@0.23.0:
     optionalDependencies:
@@ -2151,7 +2151,7 @@ snapshots:
       '@oxlint-tsgolint/win32-arm64': 0.23.0
       '@oxlint-tsgolint/win32-x64': 0.23.0
 
-  oxlint@1.67.0(oxlint-tsgolint@0.23.0)(vite-plus@0.1.24(@types/node@25.9.2)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)):
+  oxlint@1.67.0(oxlint-tsgolint@0.23.0)(vite-plus@0.1.24(@types/node@25.9.3)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)):
     optionalDependencies:
       '@oxlint/binding-android-arm-eabi': 1.67.0
       '@oxlint/binding-android-arm64': 1.67.0
@@ -2173,7 +2173,7 @@ snapshots:
       '@oxlint/binding-win32-ia32-msvc': 1.67.0
       '@oxlint/binding-win32-x64-msvc': 1.67.0
       oxlint-tsgolint: 0.23.0
-      vite-plus: 0.1.24(@types/node@25.9.2)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)
+      vite-plus: 0.1.24(@types/node@25.9.3)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)
 
   path-key@3.1.1: {}
 
@@ -2331,14 +2331,14 @@ snapshots:
 
   utility-types@3.11.0: {}
 
-  vite-plus@0.1.24(@types/node@25.9.2)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3):
+  vite-plus@0.1.24(@types/node@25.9.3)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3):
     dependencies:
       '@oxc-project/types': 0.133.0
       '@oxlint/plugins': 1.61.0
-      '@voidzero-dev/vite-plus-core': 0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3)
-      '@voidzero-dev/vite-plus-test': 0.1.24(@types/node@25.9.2)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)
-      oxfmt: 0.52.0(vite-plus@0.1.24(@types/node@25.9.2)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3))
-      oxlint: 1.67.0(oxlint-tsgolint@0.23.0)(vite-plus@0.1.24(@types/node@25.9.2)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.2)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3))
+      '@voidzero-dev/vite-plus-core': 0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3)
+      '@voidzero-dev/vite-plus-test': 0.1.24(@types/node@25.9.3)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3)
+      oxfmt: 0.52.0(vite-plus@0.1.24(@types/node@25.9.3)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3))
+      oxlint: 1.67.0(oxlint-tsgolint@0.23.0)(vite-plus@0.1.24(@types/node@25.9.3)(@voidzero-dev/vite-plus-core@0.1.24(@types/node@25.9.3)(jiti@2.7.0)(typescript@6.0.3))(jiti@2.7.0)(typescript@6.0.3))
       oxlint-tsgolint: 0.23.0
     optionalDependencies:
       '@voidzero-dev/vite-plus-darwin-arm64': 0.1.24
