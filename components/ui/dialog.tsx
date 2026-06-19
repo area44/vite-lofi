@@ -8,10 +8,11 @@ const DialogTrigger = Dialog.Trigger;
 const DialogPortal = Dialog.Portal;
 const DialogClose = Dialog.Close;
 
-const DialogOverlay = React.forwardRef<
-  HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof Dialog.Backdrop>
->(({ className, ...props }, ref) => (
+interface DialogOverlayProps extends React.ComponentPropsWithoutRef<typeof Dialog.Backdrop> {
+  ref?: React.Ref<HTMLDivElement>;
+}
+
+const DialogOverlay = ({ className, ref, ...props }: DialogOverlayProps) => (
   <Dialog.Backdrop
     ref={ref}
     className={cn(
@@ -20,13 +21,14 @@ const DialogOverlay = React.forwardRef<
     )}
     {...props}
   />
-));
+);
 DialogOverlay.displayName = "DialogOverlay";
 
-const DialogContent = React.forwardRef<
-  HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof Dialog.Popup>
->(({ className, children, ...props }, ref) => (
+interface DialogContentProps extends React.ComponentPropsWithoutRef<typeof Dialog.Popup> {
+  ref?: React.Ref<HTMLDivElement>;
+}
+
+const DialogContent = ({ className, children, ref, ...props }: DialogContentProps) => (
   <DialogPortal>
     <DialogOverlay />
     <Dialog.Popup
@@ -40,7 +42,7 @@ const DialogContent = React.forwardRef<
       {children}
     </Dialog.Popup>
   </DialogPortal>
-));
+);
 DialogContent.displayName = "DialogContent";
 
 export {

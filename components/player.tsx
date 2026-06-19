@@ -1,10 +1,9 @@
 import type { MouseEventHandler } from "react";
 
-import { AnimatePresence, motion } from "motion/react";
+import { AnimatePresence, LazyMotion, domAnimation, m } from "motion/react";
 import { useEffect, useRef, useState, useMemo, memo } from "react";
 
 import type { DurationControl } from "@/components/control/timeline";
-import type { MusicManager } from "@/lib/music-manager";
 import type { QueueItem } from "@/lib/queue-manager";
 
 import { Timeline } from "@/components/control/timeline";
@@ -19,15 +18,11 @@ export default function MusicPlayer() {
   const timelineRef = useRef<DurationControl>(undefined);
   const timeLabelRef = useRef<HTMLParagraphElement>(null);
 
-  const [musicManager, setMusicManager] = useState<MusicManager | undefined>(undefined);
   // trigger re-renders
   const [, setDigit] = useState(0);
 
-  const paused = musicManager?.isPaused() ?? true;
-  const currentSong = musicManager?.queueManager.getCurrentSong();
-
-  useEffect(() => {
-    const manager = createMusicManager({
+  const [musicManager] = useState(() =>
+    createMusicManager({
       onTimeUpdate: (currentTime, duration) => {
         if (timeLabelRef.current) {
           timeLabelRef.current.innerText = formatSeconds(currentTime);
@@ -44,18 +39,22 @@ export default function MusicPlayer() {
       onSongListUpdated() {
         setDigit((prev) => prev + 1);
       },
-    });
+    }),
+  );
 
-    const shortcut = createShortcutManager({ musicManager: manager });
+  const paused = musicManager.isPaused();
+  const currentSong = musicManager.queueManager.getCurrentSong();
+
+  useEffect(() => {
+    const shortcut = createShortcutManager({ musicManager });
 
     shortcut.bind();
-    setMusicManager(manager);
 
     return () => {
       shortcut.destroy();
-      manager.destroy();
+      musicManager.destroy();
     };
-  }, []);
+  }, [musicManager]);
 
   const onClick: MouseEventHandler = (e) => {
     if (!musicManager || e.button !== 0) return;
@@ -78,27 +77,27 @@ export default function MusicPlayer() {
   };
 
   return (
-    <motion.main
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{
-        ease: "easeInOut",
-        duration: 0.5,
-      }}
-      className="relative z-[2] flex h-svh flex-col px-12 py-16 text-purple-100 md:p-24"
-      onMouseDown={onClick}
-    >
-      <AnimatedTitle text={paused ? "Click to Play" : "Vite Lofi"} />
-      <div className="mt-2 w-full max-w-[500px]">
-        <Timeline musicManager={musicManager} durationRef={timelineRef} />
-        <AnimatePresence mode="wait" initial={false}>
-          {currentSong ? <SongDisplay key={currentSong.id} song={currentSong} /> : null}
-        </AnimatePresence>
-      </div>
-      <div className="mt-auto flex flex-row items-end justify-center gap-4 md:justify-between">
-        {musicManager && <Menu musicManager={musicManager} />}
-        <div className="w-full max-w-[250px]" data-trigger={true} data-trigger-container={true}>
-          {musicManager && (
+    <LazyMotion features={domAnimation}>
+      <m.main
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{
+          ease: "easeInOut",
+          duration: 0.5,
+        }}
+        className="relative z-[2] flex h-svh flex-col px-12 py-16 text-purple-100 md:p-24"
+        onMouseDown={onClick}
+      >
+        <AnimatedTitle text={paused ? "Click to Play" : "Vite Lofi"} />
+        <div className="mt-2 w-full max-w-[500px]">
+          <Timeline musicManager={musicManager} durationRef={timelineRef} />
+          <AnimatePresence mode="wait" initial={false}>
+            {currentSong ? <SongDisplay key={currentSong.id} song={currentSong} /> : null}
+          </AnimatePresence>
+        </div>
+        <div className="mt-auto flex flex-row items-end justify-center gap-4 md:justify-between">
+          <Menu musicManager={musicManager} />
+          <div className="w-full max-w-[250px]" data-trigger={true} data-trigger-container={true}>
             <MusicVisualizer
               className="h-[150px] w-full"
               analyser={musicManager.analyser}
@@ -110,35 +109,35 @@ export default function MusicPlayer() {
               minDecibels={-100}
               maxDecibels={0}
             />
-          )}
-          <p ref={timeLabelRef} className="mt-2 text-xs text-blue-200">
-            --:--
-          </p>
+            <p ref={timeLabelRef} className="mt-2 text-xs text-blue-200">
+              --:--
+            </p>
+          </div>
         </div>
-      </div>
-      <motion.div
-        data-trigger-container={true}
-        className="absolute inset-0 z-[-1]"
-        animate={{
-          opacity: paused ? 0.3 : 1,
-        }}
-        initial={{
-          opacity: 0,
-        }}
-        transition={{
-          ease: "easeInOut",
-          duration: 1,
-        }}
-      >
-        <Gradient currentId={currentSong?.id ?? 0} />
-      </motion.div>
-    </motion.main>
+        <m.div
+          data-trigger-container={true}
+          className="absolute inset-0 z-[-1]"
+          animate={{
+            opacity: paused ? 0.3 : 1,
+          }}
+          initial={{
+            opacity: 0,
+          }}
+          transition={{
+            ease: "easeInOut",
+            duration: 1,
+          }}
+        >
+          <Gradient currentId={currentSong?.id ?? 0} />
+        </m.div>
+      </m.main>
+    </LazyMotion>
   );
 }
 
 const SongDisplay = memo(({ song }: { song: QueueItem }) => {
   return (
-    <motion.div
+    <m.div
       initial={{ y: 10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       exit={{ y: -10, opacity: 0 }}
@@ -150,7 +149,7 @@ const SongDisplay = memo(({ song }: { song: QueueItem }) => {
         <p className="font-medium">{song.name}</p>
         <p className="text-xs text-purple-200">{song.author}</p>
       </div>
-    </motion.div>
+    </m.div>
   );
 });
 
@@ -161,9 +160,9 @@ const AnimatedTitle = memo(({ text }: { text: string }) => {
   return (
     <h1 className="text-8xl leading-[0.9] font-light tracking-[-0.1em] md:text-9xl md:leading-[0.9] md:tracking-[-0.1em]">
       {words.map((word, i) => (
-        <motion.span key={i} className="mr-8 inline-block break-keep">
+        <m.span key={`${word}-${i}`} className="mr-8 inline-block break-keep">
           {word.split("").map((c, j) => (
-            <motion.span
+            <m.span
               key={`${c}-${j}`}
               className="inline-block"
               initial={{ y: 20, opacity: 0 }}
@@ -178,9 +177,9 @@ const AnimatedTitle = memo(({ text }: { text: string }) => {
               }}
             >
               {c}
-            </motion.span>
+            </m.span>
           ))}
-        </motion.span>
+        </m.span>
       ))}
     </h1>
   );
