@@ -2,7 +2,7 @@
 From https://github.com/samhirtarif/react-audio-visualize
  */
 
-import { type CanvasHTMLAttributes, memo, useEffect, useRef, useCallback } from "react";
+import { type CanvasHTMLAttributes, memo, useEffect, useRef, useEffectEvent } from "react";
 
 import { calculateBarData, draw } from "./utils";
 
@@ -73,15 +73,12 @@ export const MusicVisualizer = memo(
     const animationFrameRef = useRef<number>(undefined);
     const dataRef = useRef<Uint8Array>(undefined);
 
-    const processFrequencyData = useCallback(
-      (data: Uint8Array): void => {
-        if (!canvasRef.current) return;
+    const processFrequencyData = useEffectEvent((data: Uint8Array): void => {
+      if (!canvasRef.current) return;
 
-        const dataPoints = calculateBarData(data, canvasRef.current.width, barWidth, gap);
-        draw(dataPoints, canvasRef.current, barWidth, gap, backgroundColor, barColor);
-      },
-      [barWidth, gap, backgroundColor, barColor],
-    );
+      const dataPoints = calculateBarData(data, canvasRef.current.width, barWidth, gap);
+      draw(dataPoints, canvasRef.current, barWidth, gap, backgroundColor, barColor);
+    });
 
     useEffect(() => {
       analyser.fftSize = fftSize;
@@ -108,20 +105,13 @@ export const MusicVisualizer = memo(
 
       report();
 
+      const currentAnimationFrame = animationFrameRef.current;
       return () => {
-        if (animationFrameRef.current) {
-          cancelAnimationFrame(animationFrameRef.current);
+        if (currentAnimationFrame) {
+          cancelAnimationFrame(currentAnimationFrame);
         }
       };
-    }, [
-      analyser,
-      paused,
-      fftSize,
-      maxDecibels,
-      minDecibels,
-      smoothingTimeConstant,
-      processFrequencyData,
-    ]);
+    }, [analyser, paused, fftSize, maxDecibels, minDecibels, smoothingTimeConstant]);
 
     return <canvas ref={canvasRef} {...props} />;
   },

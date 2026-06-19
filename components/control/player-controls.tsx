@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import type { MusicManager } from "@/lib/music-manager";
 
@@ -14,6 +14,7 @@ export function PlayerControls({ musicManager }: TimeControlsProps) {
   return (
     <div className="mt-2 flex flex-row items-center gap-2">
       <button
+        type="button"
         aria-label="Previous song"
         title="Previous song"
         className={cn(buttonVariants({ variant: "secondary" }))}
@@ -36,6 +37,7 @@ export function PlayerControls({ musicManager }: TimeControlsProps) {
       </button>
       {musicManager.isPaused() ? (
         <button
+          type="button"
           aria-label="Play"
           title="Play"
           className={cn(buttonVariants({ variant: "secondary" }))}
@@ -57,6 +59,7 @@ export function PlayerControls({ musicManager }: TimeControlsProps) {
         </button>
       ) : (
         <button
+          type="button"
           aria-label="Pause"
           title="Pause"
           className={cn(buttonVariants({ variant: "secondary" }))}
@@ -79,6 +82,7 @@ export function PlayerControls({ musicManager }: TimeControlsProps) {
         </button>
       )}
       <button
+        type="button"
         aria-label="Next song"
         title="Next song"
         className={cn(buttonVariants({ variant: "secondary" }))}
@@ -106,22 +110,23 @@ export function PlayerControls({ musicManager }: TimeControlsProps) {
 
 function VolumeSlider({ musicManager }: { musicManager: MusicManager }) {
   const [value, setValue] = useState(() => musicManager.getVolume());
-  const [previousVolume, setPreviousVolume] = useState(0.5);
+  const previousVolumeRef = useRef(0.5);
 
   const toggleMute = () => {
     if (value > 0) {
-      setPreviousVolume(value);
+      previousVolumeRef.current = value;
       musicManager.setVolume(0);
       setValue(0);
     } else {
-      musicManager.setVolume(previousVolume);
-      setValue(previousVolume);
+      musicManager.setVolume(previousVolumeRef.current);
+      setValue(previousVolumeRef.current);
     }
   };
 
   return (
     <>
       <button
+        type="button"
         aria-label={value === 0 ? "Unmute volume" : "Mute volume"}
         title={value === 0 ? "Unmute volume" : "Mute volume"}
         className={cn(buttonVariants({ variant: "ghost" }), "h-auto rounded-full p-1.5")}
@@ -156,7 +161,7 @@ function VolumeSlider({ musicManager }: { musicManager: MusicManager }) {
           setValue(v);
           musicManager.setVolume(v);
           if (v > 0) {
-            setPreviousVolume(v);
+            previousVolumeRef.current = v;
           }
         }}
       />
