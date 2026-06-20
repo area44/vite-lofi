@@ -1,6 +1,4 @@
 packages:
   - "."
 allowBuilds:
-  esbuild: true
-overrides:
-  vite: npm:@voidzero-dev/vite-plus-core@0.2.0
+  esbuild: false
