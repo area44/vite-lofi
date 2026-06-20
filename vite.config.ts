@@ -48,7 +48,6 @@ export default defineConfig({
       "jsx-a11y",
       "node",
       "promise",
-      "vitest",
       "vue",
     ],
     ignorePatterns: [
