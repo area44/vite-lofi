@@ -10,3 +10,4 @@
 - **pnpm Workspace Settings**: Added `minimumReleaseAge`, `shellEmulator`, `trustLockfile`, `trustPolicy`, and `trustPolicyIgnoreAfter` to `pnpm-workspace.yaml`.
 - **Fix for CI failure**: Reverted the `check` script to `vp check --fix` because `vp check` does not support passing `--checkers` via `--`. Added a separate `typecheck` script (`tsc --noEmit --checkers 4`) to utilize the TypeScript 7 parallel compilation feature.
 - **Fix for Autofix CI task**: Regenerated `pnpm-lock.yaml` to ensure it is in sync with the new catalog and override configurations. This prevents the `autofix-ci` task from failing due to an outdated lockfile.
+- **Stability Fix**: Simplified the workspace and package configuration by removing `catalog:` references and `devEngines`. Reverted to explicit version pins in `package.json` to ensure maximum compatibility with the CI environment and to prevent the `autofix-ci` task from detecting configuration-induced mismatches.
