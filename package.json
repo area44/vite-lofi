@@ -10,7 +10,6 @@
     "preview": "vp preview",
     "test": "vp test",
     "check": "vp check --fix",
-    "typecheck": "tsc --noEmit --checkers 4",
     "prepare": "vp config"
   },
   "dependencies": {
@@ -37,9 +36,9 @@
     "tailwindcss": "^4.3.2",
     "three": "^0.185.1",
     "three-stdlib": "^2.36.1",
-    "typescript": "7.0.2",
-    "vite": "npm:@voidzero-dev/vite-plus-core@0.2.4",
-    "vite-plus": "0.2.4",
-    "vitest": "4.1.10"
+    "typescript": "^7.0.2",
+    "vite": "npm:@voidzero-dev/vite-plus-core@^0.2.4",
+    "vite-plus": "^0.2.4",
+    "vitest": "^4.1.10"
   }
 }

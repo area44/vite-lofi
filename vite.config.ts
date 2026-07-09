@@ -4,23 +4,26 @@ import { defineConfig } from "vite-plus";
 
 const base = process.env["BASE"] || "/";
 
+const ignorePatterns = [
+  "*.min.*",
+  "*.map",
+  "**/public",
+  "**/build",
+  "**/dist",
+  "**/out",
+  "**/.github",
+  "**/.next",
+  "**/.astro",
+  "**/.netlify",
+  "**/*.gen.*",
+];
+
 export default defineConfig({
   staged: {
     "*": "vp check --fix",
   },
   fmt: {
-    ignorePatterns: [
-      "*.min.*",
-      "*.map",
-      "**/public",
-      "**/build",
-      "**/dist",
-      "**/out",
-      "**/.github",
-      "**/.next",
-      "**/.astro",
-      "**/.netlify",
-    ],
+    ignorePatterns,
     sortImports: {
       groups: [
         "type-import",
@@ -51,18 +54,7 @@ export default defineConfig({
       "vitest",
       "vue",
     ],
-    ignorePatterns: [
-      "*.min.*",
-      "*.map",
-      "**/public",
-      "**/build",
-      "**/dist",
-      "**/out",
-      "**/.github",
-      "**/.next",
-      "**/.astro",
-      "**/.netlify",
-    ],
+    ignorePatterns,
     options: {
       typeAware: true,
       typeCheck: true,
