@@ -9,7 +9,8 @@
     "build": "vp build",
     "preview": "vp preview",
     "test": "vp test",
-    "check": "vp check --fix -- --checkers 4",
+    "check": "vp check --fix",
+    "typecheck": "tsc --noEmit --checkers 4",
     "prepare": "vp config"
   },
   "dependencies": {

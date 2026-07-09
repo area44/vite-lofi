@@ -8,3 +8,4 @@
   - `vp migrate` confirms project status.
   - `vp check -- --checkers 4` allows passing flags to the underlying `tsc`.
 - **pnpm Workspace Settings**: Added `minimumReleaseAge`, `shellEmulator`, `trustLockfile`, `trustPolicy`, and `trustPolicyIgnoreAfter` to `pnpm-workspace.yaml`.
+- **Fix for CI failure**: Reverted the `check` script to `vp check --fix` because `vp check` does not support passing `--checkers` via `--`. Added a separate `typecheck` script (`tsc --noEmit --checkers 4`) to utilize the TypeScript 7 parallel compilation feature.
