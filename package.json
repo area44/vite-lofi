@@ -9,7 +9,7 @@
     "build": "vp build",
     "preview": "vp preview",
     "test": "vp test",
-    "check": "vp check --fix",
+    "check": "vp check --fix -- --checkers 4",
     "prepare": "vp config"
   },
   "dependencies": {
@@ -36,9 +36,16 @@
     "tailwindcss": "^4.3.2",
     "three": "^0.185.1",
     "three-stdlib": "^2.36.1",
-    "typescript": "^6.0.3",
-    "vite": "npm:@voidzero-dev/vite-plus-core@^0.2.2",
-    "vite-plus": "^0.2.2",
-    "vitest": "npm:@voidzero-dev/vite-plus-test@^0.1.24"
+    "typescript": "7.0.2",
+    "vite": "catalog:",
+    "vite-plus": "catalog:",
+    "vitest": "catalog:"
+  },
+  "devEngines": {
+    "packageManager": {
+      "name": "pnpm",
+      "version": "11.10.0",
+      "onFail": "download"
+    }
   }
 }
