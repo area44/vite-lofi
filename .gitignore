@@ -15,6 +15,7 @@ node_modules
 dist
 dist-ssr
 *.local
+tsconfig.tsbildinfo
 
 # Editor directories and files
 .DS_Store
