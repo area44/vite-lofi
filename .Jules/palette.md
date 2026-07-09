@@ -9,3 +9,4 @@
   - `vp check -- --checkers 4` allows passing flags to the underlying `tsc`.
 - **pnpm Workspace Settings**: Added `minimumReleaseAge`, `shellEmulator`, `trustLockfile`, `trustPolicy`, and `trustPolicyIgnoreAfter` to `pnpm-workspace.yaml`.
 - **Fix for CI failure**: Reverted the `check` script to `vp check --fix` because `vp check` does not support passing `--checkers` via `--`. Added a separate `typecheck` script (`tsc --noEmit --checkers 4`) to utilize the TypeScript 7 parallel compilation feature.
+- **Fix for Autofix CI task**: Regenerated `pnpm-lock.yaml` to ensure it is in sync with the new catalog and override configurations. This prevents the `autofix-ci` task from failing due to an outdated lockfile.
