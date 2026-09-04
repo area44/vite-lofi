@@ -61,6 +61,9 @@ export default defineConfig({
     },
   },
   base,
+  test: {
+    include: ["tests/**/*.test.ts"],
+  },
   plugins: [react(), tailwindcss()],
   resolve: {
     tsconfigPaths: true,
