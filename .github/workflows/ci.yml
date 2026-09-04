@@ -18,4 +18,4 @@ jobs:
           cache: true
       
       - name: Run test
-        run: vp test
+        run: vpr test
