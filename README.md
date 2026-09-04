@@ -9,7 +9,6 @@ Some nice lofi music and a music player.
 Setup [Vite+](https://github.com/voidzero-dev/vite-plus) and [Node.js](https://nodejs.org), then follows this step:
 
 ```bash
-git clone https://github.com/area44/vite-lofi.git
 vp install
 vp dev
 ```
