@@ -62,7 +62,7 @@ export default defineConfig({
   },
   base,
   test: {
-    include: ["tests/**/*.test.ts"],
+    include: ["test/**/*.test.ts"],
   },
   plugins: [react(), tailwindcss()],
   resolve: {
