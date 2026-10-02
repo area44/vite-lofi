@@ -4,6 +4,7 @@ import { AnimatePresence, LazyMotion, domAnimation, m } from "motion/react";
 import { useEffect, useRef, useState, useMemo, memo } from "react";
 
 import type { DurationControl } from "@/components/control/timeline";
+import type { MusicManager } from "@/lib/music-manager";
 import type { QueueItem } from "@/lib/queue-manager";
 
 import { Timeline } from "@/components/control/timeline";
@@ -21,8 +22,10 @@ export default function MusicPlayer() {
   // trigger re-renders
   const [, setDigit] = useState(0);
 
-  const [musicManager] = useState(() =>
-    createMusicManager({
+  const [musicManager, setMusicManager] = useState<MusicManager | undefined>(undefined);
+
+  useEffect(() => {
+    const manager = createMusicManager({
       onTimeUpdate: (currentTime, duration) => {
         if (timeLabelRef.current) {
           timeLabelRef.current.innerText = formatSeconds(currentTime);
@@ -39,22 +42,21 @@ export default function MusicPlayer() {
       onSongListUpdated() {
         setDigit((prev) => prev + 1);
       },
-    }),
-  );
+    });
 
-  const paused = musicManager.isPaused();
-  const currentSong = musicManager.queueManager.getCurrentSong();
+    setMusicManager(manager);
 
-  useEffect(() => {
-    const shortcut = createShortcutManager({ musicManager });
-
+    const shortcut = createShortcutManager({ musicManager: manager });
     shortcut.bind();
 
     return () => {
       shortcut.destroy();
-      musicManager.destroy();
+      manager.destroy();
     };
-  }, [musicManager]);
+  }, []);
+
+  const paused = musicManager?.isPaused() ?? true;
+  const currentSong = musicManager?.queueManager.getCurrentSong();
 
   const onClick: MouseEventHandler = (e) => {
     if (!musicManager || e.button !== 0) return;
@@ -96,19 +98,21 @@ export default function MusicPlayer() {
           </AnimatePresence>
         </div>
         <div className="mt-auto flex flex-row items-end justify-center gap-4 md:justify-between">
-          <Menu musicManager={musicManager} />
+          {musicManager ? <Menu musicManager={musicManager} /> : null}
           <div className="w-full max-w-[250px]" data-trigger={true} data-trigger-container={true}>
-            <MusicVisualizer
-              className="h-[150px] w-full"
-              analyser={musicManager.analyser}
-              paused={paused}
-              fftSize={4096}
-              barWidth={2}
-              gap={6}
-              smoothingTimeConstant={0.4}
-              minDecibels={-100}
-              maxDecibels={0}
-            />
+            {musicManager ? (
+              <MusicVisualizer
+                className="h-[150px] w-full"
+                analyser={musicManager.analyser}
+                paused={paused}
+                fftSize={4096}
+                barWidth={2}
+                gap={6}
+                smoothingTimeConstant={0.4}
+                minDecibels={-100}
+                maxDecibels={0}
+              />
+            ) : null}
             <p ref={timeLabelRef} className="mt-2 text-xs text-blue-200">
               --:--
             </p>

@@ -81,10 +81,7 @@ export const MusicVisualizer = memo(
     });
 
     useEffect(() => {
-      analyser.fftSize = fftSize;
-      analyser.minDecibels = minDecibels;
-      analyser.maxDecibels = maxDecibels;
-      analyser.smoothingTimeConstant = smoothingTimeConstant;
+      configureAnalyser(analyser, { fftSize, minDecibels, maxDecibels, smoothingTimeConstant });
 
       const binCount = analyser.frequencyBinCount;
       if (!dataRef.current || dataRef.current.length !== binCount) {
@@ -116,3 +113,18 @@ export const MusicVisualizer = memo(
     return <canvas ref={canvasRef} {...props} />;
   },
 );
+
+function configureAnalyser(
+  analyser: AnalyserNode,
+  options: {
+    fftSize: AnalyserNode["fftSize"];
+    minDecibels: number;
+    maxDecibels: number;
+    smoothingTimeConstant: number;
+  },
+) {
+  analyser.fftSize = options.fftSize;
+  analyser.minDecibels = options.minDecibels;
+  analyser.maxDecibels = options.maxDecibels;
+  analyser.smoothingTimeConstant = options.smoothingTimeConstant;
+}
