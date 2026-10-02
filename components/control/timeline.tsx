@@ -1,6 +1,6 @@
 import type { MutableRefObject, RefObject } from "react";
 
-import { useEffect, useRef, useState } from "react";
+import { useImperativeHandle, useRef, useState } from "react";
 
 import type { MusicManager } from "@/lib/music-manager";
 
@@ -20,13 +20,15 @@ export function Timeline({
   const [value, setValue] = useState(0);
   const isDrawingRef = useRef(false);
 
-  useEffect(() => {
-    (durationRef as any).current = (percent: number) => {
+  useImperativeHandle(
+    durationRef,
+    () => (percent: number) => {
       if (isDrawingRef.current) return;
 
       setValue(percent / 100);
-    };
-  }, [durationRef]);
+    },
+    [],
+  );
 
   return (
     <Slider
