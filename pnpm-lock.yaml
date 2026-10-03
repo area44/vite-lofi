@@ -24,7 +24,7 @@ importers:
         specifier: npm:class-variance-authority@^0.7.1
         version: class-variance-authority@0.7.1
       motion:
-        specifier: ^13.4.4
+        specifier: ^13.5.0
         version: 13.5.0(react-dom@19.3.0(react@19.3.0))(react@19.3.0)
       music-metadata:
         specifier: ^11.16.1
@@ -55,7 +55,7 @@ importers:
         specifier: ^4.3.3
         version: 4.3.3(@voidzero-dev/vite-plus-core@1.0.0(@types/node@25.9.9)(jiti@2.7.0)(typescript@7.0.2))
       '@types/node':
-        specifier: ^25.9.8
+        specifier: ^25.9.9
         version: 25.9.9
       '@types/react':
         specifier: ^19.3.0
