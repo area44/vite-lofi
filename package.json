@@ -37,7 +37,7 @@
     "three": "^0.187.0",
     "three-stdlib": "^2.36.1",
     "typescript": "^7.0.2",
-    "vite": "npm:@voidzero-dev/vite-plus-core@^1.6.0",
+    "vite": "npm:@voidzero-dev/vite-plus-core@^8.3.8001",
     "vite-plus": "^1.6.0"
   },
   "packageManager": "pnpm@12.21.0"
